@@ -1,0 +1,16 @@
+Project New Leaf
+Carol Pan, Judy Liu, Samantha Ngo
+APCS1 pd3
+HW#57: ...and Keeping It Pointed Up
+2017-01-10
+
+1. Create a 2D array filled with non-significant values. 
+2. Create printGrid() to print the 2048 grid.
+3. Create spawn() method so that a tile with the value of 2 or 4 randomly replaces a non-significant value.
+4. Create lose() method that notifies the players that they lost when all 16 tiles are filled.
+5. Create win() method that notifies the players that they win when they reach 2048.
+6. Create turn(String userInput) using Keyboard.java to take user input for directions. 
+7. Create remove() to replace object at given index with an insignificant value.
+8. Create swipeUp(), swipeDown(), swipeLeft(), and swipeRight() to shift tiles in the direction of the user input.
+9. Create merge() to combine adjacent tiles of the same value. 
+10. Create instance variable points and turns to keep track of the points and turns the user makes before losing the game.
