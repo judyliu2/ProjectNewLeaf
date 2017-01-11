@@ -4,13 +4,38 @@ APCS1 pd3
 HW#57: ...and Keeping It Pointed Up
 2017-01-10
 
-1. Create a 2D array filled with non-significant values. 
-2. Create printGrid() to print the 2048 grid.
-3. Create spawn() method so that a tile with the value of 2 or 4 randomly replaces a non-significant value.
-4. Create lose() method that notifies the players that they lost when all 16 tiles are filled.
-5. Create win() method that notifies the players that they win when they reach 2048.
-6. Create turn(String userInput) using Keyboard.java to take user input for directions. 
-7. Create remove() to replace object at given index with an insignificant value.
-8. Create swipeUp(), swipeDown(), swipeLeft(), and swipeRight() to shift tiles in the direction of the user input.
-9. Create merge() to combine adjacent tiles of the same value. 
-10. Create instance variable points and turns to keep track of the points and turns the user makes before losing the game.
+I. Grid
+Code the constructor for Grid
+Code the toString for Grid
+Code the non-justify methods
+Code left and right justify methods
+Code up and down justify methods
+
+II. Interface Equalizer
+Add method signature for isEqual().
+
+II. Empty
+Code intValue() to return value of an instance.
+Create toString() method to print representation of an instance.
+Code isEqual(Equalizer other) to check of another instance is equal to itself
+
+III. Tiles
+Code intValue() to return value of a Tile.
+Create toString() method to print representation of a Tile.
+Code isEqual(Equalizer other) to check if another Tile is equal to itself
+Code double() to double value of a current Tile
+
+IV. 2048
+Constructor: Create a 2D array filled with non-significant values (Empty). 
+Create printGrid() to print the 2048 grid.
+Create spawn() method so that a tile with the value of 2 or 4 randomly replaces a non-significant value.
+Create lose() method that notifies the players that they lost when all 16 tiles are filled.
+Create win() method that notifies the players that they win when they reach 2048.
+Write class Empty before proceeding.
+
+Write interface Equalizer before proceeding.
+Create swipeUp(), swipeDown(), swipeLeft(), and swipeRight() to shift tiles in the direction of the user input.
+Create remove() to replace object at given index with an insignificant value.
+Create merge() to combine adjacent tiles of the same value. 
+Create turn(String userInput) using Keyboard.java to take user input for directions.
+Create instance variable points and turns to keep track of the points and turns the user makes before losing the game.
