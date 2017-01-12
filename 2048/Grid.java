@@ -15,8 +15,7 @@ public class Grid<t>{
 
     //~~~~~~~~~~~~~~~~~methods~~~~~~~~~~~~~~~~~~~~~~~
     public String toString(){
-
-	return "";
+	String retStr = "";
     }
 
     public void remove(int i, int j){
@@ -42,8 +41,12 @@ public class Grid<t>{
     public void downJustify(){
 
     }
-    
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+    //~~~~~~~~~~~~main~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args){
 
     }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
