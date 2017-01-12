@@ -61,29 +61,26 @@ tales of wisdom gained...
 
 2016-01-05
 --------------------------------------------------------------
-Carol :: <Thing member did.>
+Carol :: -Helped plan methods, instance variables, classes, and rules for 2048
 Judy :: -Helped plan methods, instance variables, classes, and rules for 2048
-Samantha :: <Thing member did.>
+Samantha :: -Helped plan methods, instance variables, classes, and rules for 2048
 
 
 2017-01-09
 --------------------------------------------------------------
-Carol ::
-Judy :: Worked on revising proposal and UML diagram.
-Samantha ::
+Carol :: Worked on UML diagram; proposed revisions; pushed to repo
+Judy :: Worked on revising proposal and UML diagram; proposed revisions
+Samantha :: Worked on revising proposal; proposed revisions
 
 2017-01-10
 --------------------------------------------------------------
-Carol ::
-Judy :: -Worked on todo.txt and flowchart. 
-	-Pushed todo.txt to repo
-Samantha ::
+Carol :: Worked on todo.txt
+Judy :: Worked on todo.txt and flowchart; pushed todo.txt to repo
+Samantha :: Worked on todo.txt
 
 2017-01-11
 --------------------------------------------------------------
-Carol ::
-Judy :: -Helped with editing UML diagram
-	-Copied files from libaray to git repo
-	-Added to devlog.
-Samantha ::
+Carol :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
+Judy :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
+Samantha :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
 ==============================================================
