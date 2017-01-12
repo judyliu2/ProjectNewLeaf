@@ -16,13 +16,20 @@ public class Grid<t>{
     //~~~~~~~~~~~~~~~~~methods~~~~~~~~~~~~~~~~~~~~~~~
     public String toString(){
 	String retStr = "";
+	for (t[] row: userGrid){
+	    for (t column: row){
+		retStr += column + "|";
+	    }
+	    retStr += "\n";
+	}
+	return retStr;
     }
 
     public void remove(int i, int j){
 	
     }
 
-    public void set(int i, int j, t object){
+    public t set(int i, int j, t object){
 
     }
 
