@@ -54,7 +54,13 @@ public class Grid<t>{
     }
 
     public void rightJustify(){
-
+	for (int y = 0; y < userGrid.length; y++){
+	    if ( userGrid[y].length != 4) {
+		for(int x = user.length; x > 0; x--){
+		    set(x - 
+	    }
+	    
+	}
     }
 
     public void upJustify(){
