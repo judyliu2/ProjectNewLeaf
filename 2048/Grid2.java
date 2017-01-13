@@ -8,6 +8,7 @@ public class Grid2<Integer>{
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     //~~~~~~~~~~~~~~~~~~~~Default Constructor~~~~~~~~~~~~~~~~~~~~~~~
+    //Populates userGrid with insignificant values: 0
     public Grid2(){
 	for (int x = 0; x < userGrid.length; x++){
 	    for (int y = 0; y < userGrid[x].length; y++){
@@ -17,7 +18,7 @@ public class Grid2<Integer>{
     }
     //~~~~~~~~~~~~~~~Overloaded constructor~~~~~~~~~~~~~~~~~~~~~~
     public Grid2(int row, int column, int x){
-	
+	userGrid[row][column] = x;
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -33,15 +34,17 @@ public class Grid2<Integer>{
 	return retStr;
     }
 
-    public void remove(int row, int column){
-	
+    public Integer remove(int row, int column){
+	Integer oldVal = userGrid[row][column];
+	userGrid[row][column] = 0;
+	return oldVal;
     }
 
-    public int set(int row, int column, int object){
+    public Integer set(int row, int column, int object){
 	return userGrid[row][column];
     }
 
-    public int get(int row, int column){
+    public Integer get(int row, int column){
 	return userGrid[row][column];
     }
     
@@ -83,8 +86,8 @@ public class Grid2<Integer>{
 
     //~~~~~~~~~~~~main~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args){
-	Grid2 t = new Grid2();
-	System.out.println(t.toString());
+	Grid2 t = new Grid2(2,1,2);
+	System.out.println(t);
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
