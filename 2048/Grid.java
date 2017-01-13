@@ -78,12 +78,22 @@ public class Grid<t>{
 	}
     }
     /*rightJustify() should move all significant values as right as they can go
-     
+      uses a bubbling method to push all non-nullValues to that direction
+      vanilla version, not exit early
      */
     public void rightJustify(){
-	for (int y = 0; y < userGrid.length; y++){
-	    for(int x = userGrid[y].length - 1; x > 0; x--){
-		    set(x, y, get(x - 1, y));
+		//go by row
+	for (int row = 0; row < userGrid.length; row ++){
+	    //do n - 1 passes
+	    for (int pass = 0; pass < userGrid[0].length - 1; pass ++){
+		//for each column in that row
+		for (int column = 0; column < userGrid[0].length - 1; column ++){
+		    //check for presence of nullValue to the right
+		    if (get(row,column +1).equals(nullValue)){
+			//if so, swap
+			swap(row, column, row, column + 1);
+		    }
+		}	    
 	    }
 	}
     }
@@ -136,7 +146,7 @@ public class Grid<t>{
 	test.set(1 , 1 , 4);
 	test.set(2 , 2 , 5);
 	System.out.println(test);
-	test.leftJustify();
+	test.rightJustify();
 	System.out.println(test);
 	test.upJustify();
 	System.out.println(test);
