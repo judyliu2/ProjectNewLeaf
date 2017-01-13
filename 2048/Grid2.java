@@ -40,8 +40,10 @@ public class Grid2<Integer>{
 	return oldVal;
     }
 
-    public Integer set(int row, int column, int object){
-	return userGrid[row][column];
+    public Integer set(int row, int column, Integer object){
+	Integer oldVal = userGrid[row][column];
+	userGrid[row][column] = object;
+	return oldVal;
     }
 
     public Integer get(int row, int column){
