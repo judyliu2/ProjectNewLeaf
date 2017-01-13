@@ -7,22 +7,6 @@ pd 3
 2048
 
 
-Suggested usage: 
-* Replace all fields, angle brackets included, with specified info.
-  eg, pd <pd#> --> pd 3
-* Delete these instructions once all teammates understand usage.
-
-devlog--
-Use keyboard shortcut to jump to end,
- replicate entry template,
- modify appropriately.
-
-zone of reflection--
-Flesh out each category whenever necessary, appropriate.
- Need not be fully filled in until end of project,
- but best done as you go along.
-
-
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
@@ -34,6 +18,7 @@ UNRESOLVED ISSUES
 blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
 
+
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
@@ -41,6 +26,9 @@ wow! oo!...
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
+
+2017-01-12
+-We made a new class called Grid2 to contain integers instead of Tiles (temporarily) because Tile class isn't created yet. 
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,9 +49,7 @@ tales of wisdom gained...
 
 2016-01-05
 --------------------------------------------------------------
-Carol :: -Helped plan methods, instance variables, classes, and rules for 2048
-Judy :: -Helped plan methods, instance variables, classes, and rules for 2048
-Samantha :: -Helped plan methods, instance variables, classes, and rules for 2048
+All :: -Helped plan methods, instance variables, classes, and rules for 2048
 
 
 2017-01-09
@@ -83,4 +69,11 @@ Samantha :: Worked on todo.txt
 Carol :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
 Judy :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
 Samantha :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
+
+2017-01-12
+-------------------------------------------------------------- 
+Carol :: created Grid.java, worked on set(), get(), leftJustify(). Used leftJustify and copy and paste to do upJustify() and downJustify(). Made diligent comments
+Judy :: worked on Grid.java,  worked on rightJustify(), added Grid2.java which takes integers, fixed flowchart.
+Samantha :: worked on Grid.java, worked on Grid(), created main().
+
 ==============================================================
