@@ -9,7 +9,13 @@ public class Grid<t>{
 
     //~~~~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~~~~~
     public Grid(int row, int column, t nullVal){
-
+	userGrid = new t[row][column];
+	nullValue = nullVal;
+	for (int x = 0; x < row; x ++){
+	    for (int y = 0; y < column; y ++){
+		userGrid[x][y] = nullValue;
+	    }
+	}
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -25,12 +31,16 @@ public class Grid<t>{
 	return retStr;
     }
 
-    public void remove(int row, int column){
-	
+    public t remove(int row, int column){
+	t temp = userGrid[row][coiumn];
+	userGrid[row][column] = nullValue;
+	return temp;
     }
 
     public t set(int row, int column, t object){
-
+	t temp = userGrid[row][column];
+	userGrid[row][column] = object;
+	return temp;
     }
 
     public t get(int row, int column){
