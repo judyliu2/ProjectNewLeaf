@@ -1,7 +1,7 @@
 public class Grid<t>{
 
     //~~~~~~~~~~~~~~Instance Vars~~~~~~~~~~~~~~~~~~~~~
-    private t[][] userGrid;
+    private Object[][] userGrid;
     private int placesFilled;
     private int maxPlaces;
     private t nullValue;
@@ -9,7 +9,7 @@ public class Grid<t>{
 
     //~~~~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~~~~~
     public Grid(int row, int column, t nullVal){
-	userGrid = new t[row][column];
+	userGrid = new Object[row][column];
 	nullValue = nullVal;
 	for (int x = 0; x < row; x ++){
 	    for (int y = 0; y < column; y ++){
@@ -22,8 +22,8 @@ public class Grid<t>{
     //~~~~~~~~~~~~~~~~~methods~~~~~~~~~~~~~~~~~~~~~~~
     public String toString(){
 	String retStr = "";
-	for (t[] row: userGrid){
-	    for (t column: row){
+	for (Object[] row: userGrid){
+	    for (Object column: row){
 		retStr += column + "|";
 	    }
 	    retStr += "\n";
@@ -32,19 +32,19 @@ public class Grid<t>{
     }
 
     public t remove(int row, int column){
-	t temp = userGrid[row][coiumn];
+	t temp = (t)userGrid[row][column];
 	userGrid[row][column] = nullValue;
 	return temp;
     }
 
     public t set(int row, int column, t object){
-	t temp = userGrid[row][column];
+	t temp = (t)userGrid[row][column];
 	userGrid[row][column] = object;
 	return temp;
     }
 
     public t get(int row, int column){
-	return userGrid[row][column];
+	return (t)userGrid[row][column];
     }
     
     public void swap(int row1, int column1, int row2, int column2){
@@ -83,9 +83,16 @@ public class Grid<t>{
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-    //~~~~~~~~~~~~main~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~~~~~~~~~~~~main~~~~~~~testin~phase~~~~~~~~~~
     public static void main(String[] args){
-
+	Grid test = new Grid<Integer>(3, 3, 0);
+	System.out.println(test);
+	test.set(1 , 1 , 4);
+	System.out.println(test);
+	test.leftJustify();
+	System.out.println(test);
+	test.rightJustify();
+	System.out.println(test);
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
