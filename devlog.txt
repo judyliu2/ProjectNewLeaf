@@ -83,4 +83,11 @@ Samantha :: Worked on todo.txt
 Carol :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
 Judy :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
 Samantha :: Helped with editing UML diagram, copied files from library to git repo; added to devlog.
+
+2017-01-12
+-------------------------------------------------------------- 
+Carol :: created Grid.java, worked on set(), get(), leftJustify().
+Judy :: worked on Grid.java,  worked on rightJustify().
+Samantha :: worked on Grid.java, worked on Grid(), created main().
+
 ==============================================================
