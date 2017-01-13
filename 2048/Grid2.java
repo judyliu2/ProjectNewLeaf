@@ -34,17 +34,19 @@ public class Grid2<Integer>{
 	return retStr;
     }
 
-    public Integer remove(int row, int column){
-	Integer oldVal = userGrid[row][column];
+    public int remove(int row, int column){
+	int oldVal = userGrid[row][column];
 	userGrid[row][column] = 0;
 	return oldVal;
     }
 
-    public Integer set(int row, int column, int object){
-	return userGrid[row][column];
+    public int set(int row, int column, int object){
+	int oldVal = userGrid[row][column];
+	userGrid[row][column] = object;
+	return oldVal;
     }
 
-    public Integer get(int row, int column){
+    public int get(int row, int column){
 	return userGrid[row][column];
     }
     
