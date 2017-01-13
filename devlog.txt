@@ -73,7 +73,7 @@ Samantha :: Helped with editing UML diagram, copied files from library to git re
 2017-01-12
 -------------------------------------------------------------- 
 Carol :: created Grid.java, worked on set(), get(), leftJustify(). Used leftJustify and copy and paste to do upJustify() and downJustify(). Made diligent comments
-Judy :: worked on Grid.java,  worked on rightJustify(), added Grid2.java which takes integers 
+Judy :: worked on Grid.java,  worked on rightJustify(), added Grid2.java which takes integers, fixed flowchart.
 Samantha :: worked on Grid.java, worked on Grid(), created main().
 
 ==============================================================
