@@ -151,6 +151,8 @@ public class Grid<t>{
 	System.out.println(test);
 	test.downJustify();
 	System.out.println(test);
+	test.leftJustify();
+	System.out.println(test);
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
