@@ -87,6 +87,7 @@ public class Grid2<Integer>{
     }
 
     public void rightJustify(){
+	/*
 	for (int y = 0; y < userGrid.length; y++){
 	    if (meaningfulValues(y) > 0){
 		for(int x = lastIndex(y); x >= 0; x--){
@@ -100,6 +101,7 @@ public class Grid2<Integer>{
 		}
 	    }
 	}
+	*/
     }
 
     public void upJustify(){
