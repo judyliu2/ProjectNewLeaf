@@ -54,6 +54,26 @@ public class Grid2<Integer>{
         set(row1,column1,(set(row2,column2,get(row1,column1))));
     }
 
+    public int meaningfulValues(int row){
+	int total = 0;
+	for (int x: userGrid[row]){
+	    if (x != 0){
+		total += 1;
+	    }
+	}
+	return total;
+    }
+
+    public int lastIndex(int row){
+	int index = -1;
+	for (int x = 0; x < userGrid[row].length; x++){
+	    if (get(x,row) != 0){
+		index = x;
+	    }
+	}
+	return index;
+    }
+    
     public void leftJustify(){
 	for (int row = 0; row < userGrid.length; row ++){
 	    for (int pass = 0; pass < userGrid[0].length - 1; pass ++){
@@ -68,9 +88,15 @@ public class Grid2<Integer>{
 
     public void rightJustify(){
 	for (int y = 0; y < userGrid.length; y++){
-	    if ( userGrid[y].length != 4) {
-		for(int x = userGrid[y].length - 1; x > 0; x--){
-		    set(x, y, get(x - 1, y));
+	    if (meaningfulValues(y) > 0){
+		for(int x = lastIndex(y); x >= 0; x--){
+		    if (x != 3){
+			if (get(y, x) > 0){
+			    while(get(x + 1, y) == 0){
+				set(x + 1, y, get(x, y));
+			    }
+			}
+		    }
 		}
 	    }
 	}
@@ -88,8 +114,20 @@ public class Grid2<Integer>{
 
     //~~~~~~~~~~~~main~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static void main(String[] args){
-	Grid2 t = new Grid2(2,1,2);
-	System.out.println(t);
+	Grid2 test = new Grid2(2,1,2);
+	System.out.println(test);
+	System.out.println();
+
+	System.out.println(test.meaningfulValues(2));
+	System.out.println(test.lastIndex(2));
+	test.rightJustify();
+	System.out.println(test);
+	System.out.println();
+
+	test.leftJustify();
+	System.out.println(test);
+	System.out.println();
+
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
