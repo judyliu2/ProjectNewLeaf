@@ -56,10 +56,10 @@ public class Grid<t>{
     public void rightJustify(){
 	for (int y = 0; y < userGrid.length; y++){
 	    if ( userGrid[y].length != 4) {
-		for(int x = user.length; x > 0; x--){
-		    set(x - 
+		for(int x = userGrid[y].length - 1; x > 0; x--){
+		    set(x, y, get(x - 1, y));
+		}
 	    }
-	    
 	}
     }
 
