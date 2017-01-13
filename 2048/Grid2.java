@@ -103,11 +103,28 @@ public class Grid2<Integer>{
     }
 
     public void upJustify(){
-	return;
+	for (int column = 0; column < userGrid[0].length; column ++){
+	    for (int pass = 0; pass < userGrid.length - 1; pass ++){
+		for (int row = userGrid.length - 1; row > 0; row --){
+		    if (get(row -1,column).equals(nullValue)){
+			swap(row, column, row -1, column);
+		    }
+		}	    
+	    }
+	}
     }
 
     public void downJustify(){
-	return;
+	for (int column = 0; column < userGrid[0].length; column ++){
+	    for (int pass = 0; pass < userGrid.length - 1; pass ++){
+		for (int row = 0; row < userGrid.length - 1; row ++){
+		    if (get(row + 1,column).equals(nullValue)){
+			swap(row, column, row + 1, column);
+		    }
+		}	    
+	    }
+	}
+
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
