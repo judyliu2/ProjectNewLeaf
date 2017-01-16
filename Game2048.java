@@ -21,7 +21,12 @@ public class Game2048{
 
     //~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~
     public Game2048(){
+	Empty nullVal = new Empty()
+	Grid _game = new Grid(4,4,nullVal);
 
+	_score = 0;
+	highest = 2048;
+	
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -106,4 +111,4 @@ public class Game2048{
 
 
 }//end class 2048
->>>>>>> 097cd94fc308d15981baf4961ea662291dd4ab1e:Game2048.java
+
