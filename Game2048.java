@@ -1,3 +1,4 @@
+
 /*Driver Class 2048
 contains a user interactive game that will utilize all the files located
 in the folder, 2048*/
@@ -34,13 +35,22 @@ public class Game2048{
     
     //spawns a new tile at a random empty place
     public void spawn(){
-
+	int row = (int)(Math.random() * 4);
+	int column = (int)(Math.random() * 4);
+	if( _game.isEmpty(row,column)){
+	    Tile input = new Tile();
+	    game.set(row,column,input);
+	}
+	else{
+	    spawn();
+	}
     }
-
+    
     //doubles the value of one tile and removes the other
     //input are the indices for each tile
     public void merge(int row1, int column1, int row2, int column2){
-
+	_game.get(row1,column1).double();
+	_game.remove(row2,column2);
     }
 
     //simulates swiping to the left
@@ -50,7 +60,7 @@ public class Game2048{
 
     //simulates swiping to the right
     public void swipeRight(){
-	_game.rightJustyfy();
+	_game.rightJustify();
     }
 
     //simulates swiping up
@@ -69,19 +79,23 @@ public class Game2048{
 	
 	userInput = Keyboard.readString();
 	
-	if ((userInput.compareTo("a") == 0) || (userInput.compareTo("A")== 0)){
+	if ((userInput.compareTo("a") == 0) ||
+	    (userInput.compareTo("A")== 0)){
 	    swipeLeft();
 	}
 	
-	else if ((userInput.compareTo("s") == 0) || (userInput.compareTo("S")== 0)){
+	else if ((userInput.compareTo("s") == 0) ||
+		 (userInput.compareTo("S")== 0)){
 	    swipeDown();
 	}
 	
-	else if ((userInput.compareTo("d") == 0) || (userInput.compareTo("D")== 0)){
+	else if ((userInput.compareTo("d") == 0) ||
+		 (userInput.compareTo("D")== 0)){
 	    swipeRight();
 	}
 	
-	else if ((userInput.compareTo("w") == 0) || (userInput.compareTo("W")== 0)){
+	else if ((userInput.compareTo("w") == 0) ||
+		 (userInput.compareTo("W")== 0)){
 	    swipeUp();
 	}
 	
@@ -104,6 +118,5 @@ public class Game2048{
 
     }
 
+}//end class Game2048
 
-}//end class 2048
->>>>>>> 097cd94fc308d15981baf4961ea662291dd4ab1e:Game2048.java
