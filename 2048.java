@@ -34,13 +34,22 @@ public class 2048{
     
     //spawns a new tile at a random place
     public void spawn(){
-
+	int row = (int)(Math.random() * 4);
+	int column = (int)(Math.random() * 4);
+	if( _game.isEmpty(row,column)){
+	    Tile input = new Tile();
+	    game.set(row,column,input);
+	}
+	else{
+	    spawn();
+	}
     }
 
     //doubles the value of one tile and removes the other
     //input are the indices for each tile
     public void merge(int row1, int column1, int row2, int column2){
-
+	_game.get(row1,column1).double();
+	_game.remove(row2,column2);
     }
 
     //simulates swiping to the left
