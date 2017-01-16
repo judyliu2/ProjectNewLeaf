@@ -61,20 +61,28 @@ public class Game2048{
     //simulates swiping to the left
     public void swipeLeft(){
 	_game.leftJustify();
+	merge();
+	_game.leftJustify();
     }
 
     //simulates swiping to the right
     public void swipeRight(){
+	_game.rightJustify();
+	merge();
 	_game.rightJustify();
     }
 
     //simulates swiping up
     public void swipeUp(){
 	_game.upJustify();
+	merge();
+	_game.upJustify();
     }
 
     //simulates swiping down
     public void swipeDown(){
+	_game.downJustify();
+	merge();
 	_game.downJustify();
     }
 
