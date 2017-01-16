@@ -53,8 +53,12 @@ public class Game2048{
     //doubles the value of one tile and removes the other
     //input are the indices for each tile
     public void merge(int row1, int column1, int row2, int column2){
-	_game.get(row1,column1).double();
+	_game.get(row1,column1).doubleTile();
 	_game.remove(row2,column2);
+	int temp = _game.get(row1,column1).getIntVal();
+	if (temp > highest){
+	    highest = temp;
+	}
     }
 
     //simulates swiping to the left
