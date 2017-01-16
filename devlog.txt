@@ -76,13 +76,16 @@ Carol :: created Grid.java, worked on set(), get(), leftJustify(). Used leftJust
 Judy :: worked on Grid.java,  worked on rightJustify(), added Grid2.java which takes integers, fixed flowchart.
 Samantha :: worked on Grid.java, worked on Grid(), created main().
 
-
-
 2017-01-13
 -------------------------------------------------------------- 
-Carol ::
 Judy :: Created Tiles and Empty classes and their methods.
-Samantha ::
+
+2017-01-15
+--------------------------------------------------------------
+Carol:: created a skeleton for 2048, added Keyboard.java
+Judy::
+Samantha
+
 
 ==============================================================
 
