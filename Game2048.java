@@ -92,7 +92,11 @@ public class Game2048{
 
     //uses above methods to play a game of 2048
     public void game(){
-
+	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
+	System.out.println();
+	
+	spawn();
+	printGrid();
     }
 
     //main method
@@ -102,3 +106,4 @@ public class Game2048{
 
 
 }//end class 2048
+>>>>>>> 097cd94fc308d15981baf4961ea662291dd4ab1e:Game2048.java
