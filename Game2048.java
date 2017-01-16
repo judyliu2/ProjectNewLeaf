@@ -22,7 +22,7 @@ public class Game2048{
 
     //~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~
     public Game2048(){
-	Empty nullVal = new Empty()
+	Empty nullVal = new Empty();
 	Grid _game = new Grid(4,4,nullVal);
 
 	_score = 0;
@@ -61,28 +61,70 @@ public class Game2048{
     //simulates swiping to the left
     public void swipeLeft(){
 	_game.leftJustify();
-	merge();
+
+	//for each row
+	for (int r = 0; r < 4; r ++){
+	    //for each instance in that row
+	    for (int c = 0; c < 3; c ++){
+		//check if it's the same as it's neighbor
+		if(_game.get(r,c).isEqual(_game.get(r,c+1))){
+		    merge(r,c,r,c+1);//if so, merge
+		    c+=1;//don't know if this works
+		}
+	    }
+	}
 	_game.leftJustify();
     }
 
     //simulates swiping to the right
     public void swipeRight(){
 	_game.rightJustify();
-	merge();
+	//for each row
+	for (int r = 0; r < 4; r ++){
+	    //for each instance in that row
+	    for (int c = 3; c > 0; c --){
+		//check if it's the same as it's neighbor
+		if(_game.get(r,c).isEqual(_game.get(r,c-1))){
+		    merge(r,c,r,c-1);//if so, merge
+		    c-=1;//don't know if this works
+		}
+	    }
+	}
 	_game.rightJustify();
     }
 
     //simulates swiping up
     public void swipeUp(){
 	_game.upJustify();
-	merge();
+	//for each column
+	for (int c = 0; c < 4; c ++){
+	    //for each instance in that row
+	    for (int r = 0; r < 3; r ++){
+		//check if it's the same as it's neighbor
+		if(_game.get(r,c).isEqual(_game.get(r,c+1))){
+		    merge(r,c,r+1,c);//if so, merge
+		    r+=1;//don't know if this works
+		}
+	    }
+	}
 	_game.upJustify();
     }
 
     //simulates swiping down
     public void swipeDown(){
 	_game.downJustify();
-	merge();
+
+	//for each column
+	for (int c = 0; c < 4; c ++){
+	    //for each instance in that row
+	    for (int r = 3; r > 0; r --){
+		//check if it's the same as it's neighbor
+		if(_game.get(r,c).isEqual(_game.get(r-1,c))){
+		    merge(r,c,r-1,c);//if so, merge
+		    r-=1;//don't know if this works
+		}
+	    }
+	}
 	_game.downJustify();
     }
 
@@ -91,6 +133,7 @@ public class Game2048{
 	System.out.println("Use the keys A,D,W,S to swipe left, right, up, and down, respectively. ");
 	System.out.println();
 	
+<<<<<<< HEAD
 	System.out.println("What shall be your next move?");
 
 	String userInput = Keyboard.readString().trim().toUpperCase();
@@ -100,6 +143,25 @@ public class Game2048{
 	} else if (userInput.equals("D")){
 	    swipeRight();
 	} else if (userInput.equals("W")){
+=======
+	if (userInput.equals("a") ||
+	    userInput.equals("A")){
+	    swipeLeft();
+	}
+	
+	else if (userInput.equals("s")  ||
+		 userInput.equals("S")){
+	    swipeDown();
+	}
+	
+	else if (userInput.equals("d") ||
+		 userInput.equals("D")){
+	    swipeRight();
+	}
+	
+	else if (userInput.equals("w") ||
+		 userInput.equals("W")){
+>>>>>>> 861b823c25a78a18905a2d9e317edaa26f426772
 	    swipeUp();
 	} else if (userInput.equals("S")){
 	    swipeDown();
