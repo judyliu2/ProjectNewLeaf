@@ -45,7 +45,7 @@ public class 2048{
 
     //simulates swiping to the left
     public void swipeLeft(){
-
+	
     }
 
     //simulates swiping to the right
@@ -70,7 +70,13 @@ public class 2048{
 
     //uses above methods to play a game of 2048
     public void game(){
+	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
+	System.out.println();
 
+	
+	spawn();
+	printGrid();
+	
     }
 
     //main method
