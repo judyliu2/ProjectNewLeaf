@@ -22,7 +22,12 @@ public class Game2048{
 
     //~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~
     public Game2048(){
+	Empty nullVal = new Empty()
+	Grid _game = new Grid(4,4,nullVal);
 
+	_score = 0;
+	highest = 2048;
+	
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -56,6 +61,7 @@ public class Game2048{
     //simulates swiping to the left
     public void swipeLeft(){
 	_game.leftJustify();
+
 	//for each row
 	for (int r = 0; r < 4; r ++){
 	    //for each instance in that row
@@ -107,6 +113,7 @@ public class Game2048{
     //simulates swiping down
     public void swipeDown(){
 	_game.downJustify();
+
 	//for each column
 	for (int c = 0; c < 4; c ++){
 	    //for each instance in that row
@@ -167,4 +174,3 @@ public class Game2048{
     }
 
 }//end class Game2048
-
