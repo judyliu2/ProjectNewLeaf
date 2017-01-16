@@ -26,8 +26,7 @@ public class Game2048{
 	Grid _game = new Grid(4,4,nullVal);
 
 	_score = 0;
-	highest = 2048;
-	
+	highest = 0;
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -133,7 +132,6 @@ public class Game2048{
 	System.out.println("Use the keys A,D,W,S to swipe left, right, up, and down, respectively. ");
 	System.out.println();
 	
-<<<<<<< HEAD
 	System.out.println("What shall be your next move?");
 
 	String userInput = Keyboard.readString().trim().toUpperCase();
@@ -143,25 +141,6 @@ public class Game2048{
 	} else if (userInput.equals("D")){
 	    swipeRight();
 	} else if (userInput.equals("W")){
-=======
-	if (userInput.equals("a") ||
-	    userInput.equals("A")){
-	    swipeLeft();
-	}
-	
-	else if (userInput.equals("s")  ||
-		 userInput.equals("S")){
-	    swipeDown();
-	}
-	
-	else if (userInput.equals("d") ||
-		 userInput.equals("D")){
-	    swipeRight();
-	}
-	
-	else if (userInput.equals("w") ||
-		 userInput.equals("W")){
->>>>>>> 861b823c25a78a18905a2d9e317edaa26f426772
 	    swipeUp();
 	} else if (userInput.equals("S")){
 	    swipeDown();
@@ -180,8 +159,21 @@ public class Game2048{
 
 	turn();
 
-	if 
-	
+	while(highest < 2048 || _placesFilled < 16){
+	    System.our.println("Your journey continues. Stay strong!");
+	    System.out.println();
+
+	    printGrid();
+	    turn();
+	}
+
+	if (highest >= 2048){
+	    System.out.println("Congratulations, comrade. The holy God of 2048 commends you for your journey and dubs you a Knight of 2048.");
+	    System.out.println("May you protect the holiness for legends to come.");
+	} else if(_placesFilled >= 16){
+	    System.out.println("Adieu, comrade. You have made it thus far, but have fallen on the battlefield. The holy God of 2048 commends you for your efforts.");
+	    System.out.println("May you meet the holiness in another reincarnation.");
+	} 	
     }
 
     //main method
