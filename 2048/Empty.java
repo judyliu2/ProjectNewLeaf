@@ -1,4 +1,4 @@
-public class Empty{
+public class Empty implements Equalizer{
     //~~~~~~~~~~~~~~~~~~Instance Variables~~~~~~~~~~~~~~~~~~
     private int intValue;
 
@@ -9,6 +9,10 @@ public class Empty{
     }
 
     //~~~~~~~~~~~~~~~~~~Methods~~~~~~~~~~~~~~~~~~~
+    public String toString(){
+	return "    ";
+    }
+
     
     //returns intValue
     public int getIntVal(){
@@ -20,12 +24,6 @@ public class Empty{
 	return (intValue == other.getIntValue());
     }
     */
-
-    public String toString(){
-	String retStr = "";
-	retStr += intValue;
-	return retStr;
-    }
     
     //~~~~~~~~~~~~~~~~~~~Main Method~~~~~~~~~~~~~~~~~
     public static void main(String[] args){

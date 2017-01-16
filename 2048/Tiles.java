@@ -1,4 +1,6 @@
-public class Tiles{
+
+
+public class Tiles implements Equalizer{
     //~~~~~~~~~~~~~~~~~~~~~Instance Variables~~~~~~~~~~~~~~~~~~~
     private int intValue;
 
@@ -9,8 +11,20 @@ public class Tiles{
 	intValue =(int) Math.pow(2,randomPow);
     }
 
-    //~~~~~~~~~~~~~~~~~~~~~~Methods~~~~~~~~~~~~~~~~~~~~
-    
+    //~~~~~~~~~~~~~~~~~~~~~~Methods~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    //returns a String representation of the instance
+    public String toString(){
+	if (intValue < 10)//if it's a single digit
+	    return "   " + intValue;
+	else if (intValue < 100)//if it's two-digit
+	    return "  " + intValue;
+	else if (intValue < 100)//if it's three-digit
+	    return " " + intValue;
+	else // > 3 digits
+	    return intValue;
+    }
+   
     //returns intValue
     public int getIntVal(){
 	return intValue;
@@ -27,11 +41,6 @@ public class Tiles{
       }
 */
     
-    public String toString(){
-	String retStr = "";
-	retStr += intValue;
-	return retStr;
-    }
     //~~~~~~~~~~~~~~~~~Main Method~~~~~~~~~~~~~~~~~~~~~
     public static void main (String[] args){
 	Tiles tester = new Tiles();
