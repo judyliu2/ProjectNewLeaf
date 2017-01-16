@@ -58,6 +58,11 @@ public class Grid<t>{
         set(row1,column1,(set(row2,column2,get(row1,column1))));
     }
 
+    /*isEmpty() returns a boolean denoting whether a space has been taken up*/
+    public boolean isEmpty(int row, int column){
+	return (userGrid[row][column].equals(nullValue));
+    }
+
     /*leftJustify() should move all significant values as left as they can go
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early*/
