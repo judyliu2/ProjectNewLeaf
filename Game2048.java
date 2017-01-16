@@ -38,15 +38,16 @@ public class Game2048{
     //spawns a new tile at a random empty place
     public void spawn(){
 	if (_placesFilled < 15){
-	    int row = (int)(Math.random() * 4);
-	    int column = (int)(Math.random() * 4);
-	    if( _game.isEmpty(row,column)){
-		Tiles input = new Tiles();
-		_game.set(row,column,input);
-		_placesFilled += 1;
-		    }
-	    else{
-		spawn();
+	    boolean didSpawn = false;
+	    while (didSpawn == false){
+		int row = (int)(Math.random() * 4);
+		int column = (int)(Math.random() * 4);
+		if( _game.isEmpty(row,column)){//it's not allow us to do this
+		    Tiles input = new Tiles();
+		    _game.set(row,column,input);
+		    _placesFilled += 1;
+		    didSpawn = true;
+		}
 	    }
 	}
     }
@@ -174,17 +175,17 @@ public class Game2048{
 	
 	spawn();
 	printGrid();
-
+	
 	turn();
-
+	
 	while(highest < 2048 || _placesFilled < 16){
 	    System.out.println("Your journey continues. Stay strong!");
 	    System.out.println();
-
+	    
 	    printGrid();
 	    turn();
 	}
-
+	
 	if (highest >= 2048){
 	    System.out.println("Congratulations, comrade. The holy God of 2048 commends you for your journey and dubs you a Knight of 2048.");
 	    System.out.println("May you protect the holiness for legends to come.");
@@ -195,9 +196,9 @@ public class Game2048{
     }
 
     //main method
-    public static void main(String args){
+    public static void main(String[] args){
 	Game2048 bob = new Game2048();
 	bob.game();
     }
-
+    
 }//end class Game2048
