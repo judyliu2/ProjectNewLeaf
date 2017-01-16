@@ -88,32 +88,23 @@ public class Game2048{
 
     //simulates a turn after accepting user input
     public void turn(String userInput){
-	System.out.println("Which direction would you like the tiles to move toward? \n A for Left \n S for Down \n D for Right \n W for up");
+	System.out.println("Use the keys A,D,W,S to swipe left, right, up, and down, respectively. ");
+	System.out.println();
 	
-	userInput = Keyboard.readString();
-	
-	if ((userInput.compareTo("a") == 0) ||
-	    (userInput.compareTo("A")== 0)){
+	System.out.println("What shall be your next move?");
+
+	String userInput = Keyboard.readString().trim().toUpperCase();
+
+	if (userInput.equals("A")){
 	    swipeLeft();
-	}
-	
-	else if ((userInput.compareTo("s") == 0) ||
-		 (userInput.compareTo("S")== 0)){
-	    swipeDown();
-	}
-	
-	else if ((userInput.compareTo("d") == 0) ||
-		 (userInput.compareTo("D")== 0)){
+	} else if (userInput.equals("D")){
 	    swipeRight();
-	}
-	
-	else if ((userInput.compareTo("w") == 0) ||
-		 (userInput.compareTo("W")== 0)){
+	} else if (userInput.equals("W")){
 	    swipeUp();
-	}
-	
-	else{
-	    System.out.println("Sorry, your input is not a valid direction.");
+	} else if (userInput.equals("S")){
+	    swipeDown();
+	} else {
+	    System.out.println("You have disobeyed the laws of the land. Try again if you wish to ever meet the lord.");
 	}
     }
 
@@ -124,6 +115,11 @@ public class Game2048{
 	
 	spawn();
 	printGrid();
+
+	turn();
+
+	if 
+	
     }
 
     //main method
