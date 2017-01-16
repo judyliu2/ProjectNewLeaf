@@ -22,7 +22,7 @@ public class Game2048{
 
     //~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~
     public Game2048(){
-	Empty nullVal = new Empty()
+	Empty nullVal = new Empty();
 	Grid _game = new Grid(4,4,nullVal);
 
 	_score = 0;
@@ -92,23 +92,23 @@ public class Game2048{
 	
 	userInput = Keyboard.readString();
 	
-	if ((userInput.compareTo("a") == 0) ||
-	    (userInput.compareTo("A")== 0)){
+	if (userInput.equals("a") ||
+	    userInput.equals("A")){
 	    swipeLeft();
 	}
 	
-	else if ((userInput.compareTo("s") == 0) ||
-		 (userInput.compareTo("S")== 0)){
+	else if (userInput.equals("s")  ||
+		 userInput.equals("S")){
 	    swipeDown();
 	}
 	
-	else if ((userInput.compareTo("d") == 0) ||
-		 (userInput.compareTo("D")== 0)){
+	else if (userInput.equals("d") ||
+		 userInput.equals("D")){
 	    swipeRight();
 	}
 	
-	else if ((userInput.compareTo("w") == 0) ||
-		 (userInput.compareTo("W")== 0)){
+	else if (userInput.equals("w") ||
+		 userInput.equals("W")){
 	    swipeUp();
 	}
 	
