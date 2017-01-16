@@ -21,11 +21,9 @@ public class Tiles{
 	intValue *= 2;
     }
 
-    /*
-      public boolean isEqual(Equalizer other){
-	  return (intValue == other.getIntValue());
-      }
-*/
+    public boolean isEqual(Equalizer other){
+	return (intValue == other.getIntValue());
+    }
     
     public String toString(){
 	String retStr = "";

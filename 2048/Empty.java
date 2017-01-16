@@ -15,11 +15,10 @@ public class Empty{
 	return intValue;
     }
     
-    /*
     public boolean isEqual(Equalizer other){
 	return (intValue == other.getIntValue());
     }
-    */
+    
 
     public String toString(){
 	String retStr = "";
