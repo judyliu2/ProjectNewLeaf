@@ -21,7 +21,7 @@ public class Game2048{
     //~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~
     public Game2048(){
 	Empty nullVal = new Empty();
-	Grid _game = new Grid(4,4,nullVal);
+	_game = new Grid<Equalizer>(4,4,nullVal);
 	_placesFilled = 0;
 	_score = 0;
 	highest = 0;
@@ -42,7 +42,7 @@ public class Game2048{
 	    while (didSpawn == false){
 		int row = (int)(Math.random() * 4);
 		int column = (int)(Math.random() * 4);
-		if( _game.isEmpty(row,column)){//it's not allow us to do this
+		if( _game.isEmpty(row,column)){
 		    Tiles input = new Tiles();
 		    _game.set(row,column,input);
 		    _placesFilled += 1;
@@ -115,7 +115,7 @@ public class Game2048{
 		//so long as it's not a nullValue
 		if (!(_game.isEmpty(r,c))){
 		    //check if it's the same as it's neighbor
-		    if(_game.get(r,c).isEqual(_game.get(r,c+1))){
+		    if(_game.get(r,c).isEqual(_game.get(r+1,c))){
 			merge(r,c,r+1,c);//if so, merge
 			r+=1;//don't know if this works
 		    }
@@ -172,16 +172,14 @@ public class Game2048{
     public void game(){
 	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
 	System.out.println();
-	
 	spawn();
 	printGrid();
-	
 	turn();
 	
 	while(highest < 2048 || _placesFilled < 16){
 	    System.out.println("Your journey continues. Stay strong!");
 	    System.out.println();
-	    
+	    spawn();
 	    printGrid();
 	    turn();
 	}
