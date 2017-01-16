@@ -12,15 +12,23 @@ pd 3
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
+we figured out how to separate significant and insignificant values in 2D arrays!
+we figured out justification, and it works like a dream!!!
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
 
+2D arrays are much more complex than 1D arrays. how do you show there's no significant value at a place?
+
+packages are limited. no clue how to hold just 2048 in the root of the repo...especially with an interface, yeesh
+
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
+
+Learned what a package is, and explored importation. Though, this is hard to apply...
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -80,11 +88,16 @@ Samantha :: worked on Grid.java, worked on Grid(), created main().
 Judy :: Created Tiles and Empty classes and their methods.
 
 2017-01-15
-
 --------------------------------------------------------------
 Carol:: created a skeleton for 2048, added Keyboard.java, augmented Grid, added 2048 functionality and swiping
 Judy:: wrote turn() 2048, changed "2048.java" to "Game2048.java", helped with swipe() methods 
 Samantha:: wrote interface Equalizer, constructor, and game(); fixed minor syntax; augmented turn()
+
+2017-01-16
+--------------------------------------------------------------
+:::Mark this day down as the day all our efforts bore fruit. It works!!!:::
+Carol:: resolved compile problems, tried some stuff with packaging.
+
 
 ==============================================================
 
