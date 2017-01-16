@@ -4,9 +4,7 @@ contains a user interactive game that will utilize all the files located
 in the folder, 2048*/
 
 //~important imports~
-import game.Empty;
-//import game.Grid;
-//import game.Tiles;
+import board.Grid;
 import cs1.Keyboard;
 //~~~~~~~~~~~~~~~~~~~
 
@@ -43,7 +41,7 @@ public class Game2048{
 	    int row = (int)(Math.random() * 4);
 	    int column = (int)(Math.random() * 4);
 	    if( _game.isEmpty(row,column)){
-		Tile input = new Tile();
+		Tiles input = new Tiles();
 		_game.set(row,column,input);
 		_placesFilled += 1;
 		    }
@@ -74,7 +72,7 @@ public class Game2048{
 	    //for each instance in that row
 	    for (int c = 0; c < 3; c ++){
 		//so long as it's not a nullValue
-		if (!(_game.get(r,c).equals(nullValue))){
+		if (!(_game.isEmpty(r,c))){
 		    //check if it's the same as it's neighbor
 		    if(_game.get(r,c).isEqual(_game.get(r,c+1))){
 			merge(r,c,r,c+1);//if so, merge
@@ -94,7 +92,7 @@ public class Game2048{
 	    //for each instance in that row
 	    for (int c = 3; c > 0; c --){
 		//so long as it's not a nullValue
-		if (!(_game.get(r,c).equals(nullValue))){
+		if (!(_game.isEmpty(r,c))){
 		    //check if it's the same as it's neighbor
 		    if(_game.get(r,c).isEqual(_game.get(r,c-1))){
 			merge(r,c,r,c-1);//if so, merge
@@ -114,13 +112,11 @@ public class Game2048{
 	    //for each instance in that row
 	    for (int r = 0; r < 3; r ++){
 		//so long as it's not a nullValue
-		if (!(_game.get(r,c).equals(nullValue))){
-		    for (int r = 0; r < 3; r ++){
-			//check if it's the same as it's neighbor
-			if(_game.get(r,c).isEqual(_game.get(r,c+1))){
-			    merge(r,c,r+1,c);//if so, merge
-			    r+=1;//don't know if this works
-			}
+		if (!(_game.isEmpty(r,c))){
+		    //check if it's the same as it's neighbor
+		    if(_game.get(r,c).isEqual(_game.get(r,c+1))){
+			merge(r,c,r+1,c);//if so, merge
+			r+=1;//don't know if this works
 		    }
 		}
 	    }
@@ -131,13 +127,12 @@ public class Game2048{
     //simulates swiping down
     public void swipeDown(){
 	_game.downJustify();
-
 	//for each column
 	for (int c = 0; c < 4; c ++){
 	    //for each instance in that row
 	    for (int r = 3; r > 0; r --){
 		//so long as it's not a nullValue
-		if (!(_game.get(r,c).equals(nullValue))){
+		if (!(_game.isEmpty(r,c))){
 		    //check if it's the same as it's neighbor
 		    if(_game.get(r,c).isEqual(_game.get(r-1,c))){
 			merge(r,c,r-1,c);//if so, merge
