@@ -24,7 +24,7 @@ public class Game2048{
     public Game2048(){
 	Empty nullVal = new Empty();
 	Grid _game = new Grid(4,4,nullVal);
-
+	_placesFilled = 0;
 	_score = 0;
 	highest = 0;
     }
@@ -44,6 +44,7 @@ public class Game2048{
 	if( _game.isEmpty(row,column)){
 	    Tile input = new Tile();
 	    game.set(row,column,input);
+	    _placesFilled += 1
 	}
 	else{
 	    spawn();
@@ -132,7 +133,7 @@ public class Game2048{
     }
 
     //simulates a turn after accepting user input
-    public void turn(String userInput){
+    public void turn(){
 	System.out.println("Use the keys A,D,W,S to swipe left, right, up, and down, respectively. ");
 	System.out.println();
 	
@@ -150,6 +151,7 @@ public class Game2048{
 	    swipeDown();
 	} else {
 	    System.out.println("You have disobeyed the laws of the land. Try again if you wish to ever meet the lord.");
+	    turn();
 	}
     }
 
@@ -182,7 +184,8 @@ public class Game2048{
 
     //main method
     public static void main(String args){
-
+	Game2048 bob = new Game2048();
+	bob.game();
     }
 
 }//end class Game2048
