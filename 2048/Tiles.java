@@ -35,11 +35,9 @@ public class Tiles implements Equalizer{
 	intValue *= 2;
     }
 
-    /*
-      public boolean isEqual(Equalizer other){
-	  return (intValue == other.getIntValue());
-      }
-*/
+    public boolean isEqual(Equalizer other){
+	return (intValue == other.getIntValue());
+    }
     
     //~~~~~~~~~~~~~~~~~Main Method~~~~~~~~~~~~~~~~~~~~~
     public static void main (String[] args){

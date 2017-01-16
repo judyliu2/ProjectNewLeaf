@@ -81,11 +81,18 @@ Samantha :: worked on Grid.java, worked on Grid(), created main().
 Judy :: Created Tiles and Empty classes and their methods.
 
 2017-01-15
+<<<<<<< HEAD
 --------------------------------------------------------------
 Carol:: created a skeleton for 2048, added Keyboard.java
 Judy::
 Samantha
 
+=======
+-------------------------------------------------------------- 
+Carol :: 
+Judy :: 
+Samantha :: wrote interface Equalizer,
+>>>>>>> e0e547e8b92f1a1adc07756867d50b0149e25993
 
 ==============================================================
 
