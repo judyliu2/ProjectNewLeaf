@@ -39,15 +39,17 @@ public class Game2048{
     
     //spawns a new tile at a random empty place
     public void spawn(){
-	int row = (int)(Math.random() * 4);
-	int column = (int)(Math.random() * 4);
-	if( _game.isEmpty(row,column)){
-	    Tile input = new Tile();
-	    game.set(row,column,input);
-	    _placesFilled += 1
-	}
-	else{
-	    spawn();
+	if (_placesFilled < 15){
+	    int row = (int)(Math.random() * 4);
+	    int column = (int)(Math.random() * 4);
+	    if( _game.isEmpty(row,column)){
+		Tile input = new Tile();
+		game.set(row,column,input);
+		_placesFilled += 1
+		    }
+	    else{
+		spawn();
+	    }
 	}
     }
     
