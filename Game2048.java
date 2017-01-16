@@ -60,6 +60,7 @@ public class Game2048{
 	if (temp > highest){
 	    highest = temp;
 	}
+	_placesFilled -= 1;
     }
 
     //simulates swiping to the left
