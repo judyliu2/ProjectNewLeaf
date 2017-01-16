@@ -82,7 +82,6 @@ public class Grid<t>{
       vanilla version, not exit early
      */
     public void rightJustify(){
-		//go by row
 	for (int row = 0; row < userGrid.length; row ++){
 	    //do n - 1 passes
 	    for (int pass = 0; pass < userGrid[0].length - 1; pass ++){
@@ -141,16 +140,19 @@ public class Grid<t>{
 
     //~~~~~~~~~~~~main~~~~~~~testin~phase~~~~~~~~~~
     public static void main(String[] args){
-	Grid test = new Grid<Integer>(3, 3, 0);
+	Grid test = new Grid<Integer>(4, 4, 0);
 	System.out.println(test);
 	test.set(1 , 1 , 4);
-	test.set(2 , 2 , 5);
+	test.set(1 , 2 , 5);
 	System.out.println(test);
-	test.rightJustify();
+	/*test.rightJustify();
 	System.out.println(test);
 	test.upJustify();
 	System.out.println(test);
 	test.downJustify();
+	System.out.println(test);
+	*/
+	test.leftJustify();
 	System.out.println(test);
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
