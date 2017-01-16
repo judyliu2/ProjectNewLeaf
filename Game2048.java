@@ -4,9 +4,9 @@ contains a user interactive game that will utilize all the files located
 in the folder, 2048*/
 
 //~important imports~
-import Game.Grid;
-import Game.Empty;
-import Game.Tiles;
+import game.Empty;
+//import game.Grid;
+//import game.Tiles;
 import cs1.Keyboard;
 //~~~~~~~~~~~~~~~~~~~
 
@@ -44,7 +44,7 @@ public class Game2048{
 	    int column = (int)(Math.random() * 4);
 	    if( _game.isEmpty(row,column)){
 		Tile input = new Tile();
-		game.set(row,column,input);
+		_game.set(row,column,input);
 		_placesFilled += 1;
 		    }
 	    else{
@@ -183,7 +183,7 @@ public class Game2048{
 	turn();
 
 	while(highest < 2048 || _placesFilled < 16){
-	    System.our.println("Your journey continues. Stay strong!");
+	    System.out.println("Your journey continues. Stay strong!");
 	    System.out.println();
 
 	    printGrid();

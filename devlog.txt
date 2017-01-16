@@ -18,7 +18,6 @@ UNRESOLVED ISSUES
 blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
 
-
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
@@ -84,8 +83,8 @@ Judy :: Created Tiles and Empty classes and their methods.
 
 --------------------------------------------------------------
 Carol:: created a skeleton for 2048, added Keyboard.java, augmented Grid, added 2048 functionality and swiping
-Judy::
-Samantha:: wrote interface Equalizer,
+Judy:: wrote turn() 2048, changed "2048.java" to "Game2048.java", helped with swipe() methods 
+Samantha:: wrote interface Equalizer, constructor, and game(); fixed minor syntax; augmented turn()
 
 ==============================================================
 
