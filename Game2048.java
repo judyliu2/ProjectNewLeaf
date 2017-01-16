@@ -56,20 +56,68 @@ public class Game2048{
     //simulates swiping to the left
     public void swipeLeft(){
 	_game.leftJustify();
+	//for each row
+	for (int r = 0; r < 4; r ++){
+	    //for each instance in that row
+	    for (int c = 0; c < 3; c ++){
+		//check if it's the same as it's neighbor
+		if(_game.get(r,c).isEqual(_game.get(r,c+1))){
+		    merge(r,c,r,c+1);//if so, merge
+		    c+=1;//don't know if this works
+		}
+	    }
+	}
+	_game.leftJustify();
     }
 
     //simulates swiping to the right
     public void swipeRight(){
+	_game.rightJustify();
+	//for each row
+	for (int r = 0; r < 4; r ++){
+	    //for each instance in that row
+	    for (int c = 3; c > 0; c --){
+		//check if it's the same as it's neighbor
+		if(_game.get(r,c).isEqual(_game.get(r,c-1))){
+		    merge(r,c,r,c-1);//if so, merge
+		    c-=1;//don't know if this works
+		}
+	    }
+	}
 	_game.rightJustify();
     }
 
     //simulates swiping up
     public void swipeUp(){
 	_game.upJustify();
+	//for each column
+	for (int c = 0; c < 4; c ++){
+	    //for each instance in that row
+	    for (int r = 0; r < 3; r ++){
+		//check if it's the same as it's neighbor
+		if(_game.get(r,c).isEqual(_game.get(r,c+1))){
+		    merge(r,c,r+1,c);//if so, merge
+		    r+=1;//don't know if this works
+		}
+	    }
+	}
+	_game.upJustify();
     }
 
     //simulates swiping down
     public void swipeDown(){
+	_game.downJustify();
+	//for each column
+	for (int c = 0; c < 4; c ++){
+	    //for each instance in that row
+	    for (int r = 3; r > 0; r --){
+		//check if it's the same as it's neighbor
+		if(_game.get(r,c).isEqual(_game.get(r-1,c))){
+		    merge(r,c,r-1,c);//if so, merge
+		    r-=1;//don't know if this works
+		}
+	    }
+	}
 	_game.downJustify();
     }
 
