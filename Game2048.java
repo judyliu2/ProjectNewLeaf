@@ -45,7 +45,7 @@ public class Game2048{
 	    if( _game.isEmpty(row,column)){
 		Tile input = new Tile();
 		game.set(row,column,input);
-		_placesFilled += 1
+		_placesFilled += 1;
 		    }
 	    else{
 		spawn();
