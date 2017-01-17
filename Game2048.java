@@ -37,7 +37,7 @@ public class Game2048{
     
     //spawns a new tile at a random empty place
     public void spawn(){
-	if (_placesFilled < 15){
+	if (_placesFilled < 16){
 	    boolean didSpawn = false;
 	    while (didSpawn == false){
 		int row = (int)(Math.random() * 4);
