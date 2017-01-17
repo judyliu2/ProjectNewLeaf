@@ -192,12 +192,12 @@ public class Game2048{
 	    System.out.println();
 	    // spawn(); // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 	    // Possible new code ---------------------------------
-	    if (newBoard.equals(_board) == false){
+	    if (newBoard.equals(_game) == false){
 		spawn();
 	    }
 	    //----------------------------------------------------
 	    printGrid();
-	    newBoard = _board;
+	    newBoard = _game;
 	    turn();
 	}
 	
