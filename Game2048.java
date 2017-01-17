@@ -35,6 +35,12 @@ public class Game2048{
 	System.out.println(_game);
     }
     
+    /*
+    // Checks if Grid has changed.
+    public Boolean gridChange(){
+	if (
+    */
+
     //spawns a new tile at a random empty place
     public void spawn(){
 	if (_placesFilled < 16){
@@ -170,17 +176,25 @@ public class Game2048{
 
     //uses above methods to play a game of 2048
     public void game(){
+	String newBoard = "";
+
 	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
 	System.out.println();
-	spawn();
+	spawn(); 
 	printGrid();
 	turn();
 	
 	while(highest < 2048 || _placesFilled < 16){
 	    System.out.println("Your journey continues. Stay strong!");
 	    System.out.println();
-	    spawn();
+	    // spawn(); // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	    // Possible new code ---------------------------------
+	    if (newBoard.equals(_board) == false){
+		spawn();
+	    }
+	    //----------------------------------------------------
 	    printGrid();
+	    newBoard = _board;
 	    turn();
 	}
 	
