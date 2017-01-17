@@ -32,6 +32,7 @@ public class Game2048{
     
     //prints the current grid
     public void printGrid(){
+	System.out.println("Score: " + _score);
 	System.out.println(_game);
     }
     
@@ -49,8 +50,9 @@ public class Game2048{
 		int row = (int)(Math.random() * 4);
 		int column = (int)(Math.random() * 4);
 		if( _game.isEmpty(row,column)){
-		    Tiles input = new Tiles();
+		    Equalizer input = new Tiles();
 		    _game.set(row,column,input);
+		    _score += input.getIntVal();
 		    _placesFilled += 1;
 		    didSpawn = true;
 		}
@@ -64,6 +66,7 @@ public class Game2048{
 	_game.get(row1,column1).doubleTile();
 	_game.remove(row2,column2);
 	int temp = _game.get(row1,column1).getIntVal();
+	_score += temp;
 	if (temp > highest){
 	    highest = temp;
 	}
