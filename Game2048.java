@@ -32,19 +32,27 @@ public class Game2048{
     
     //prints the current grid
     public void printGrid(){
+	System.out.println("Score: " + _score);
 	System.out.println(_game);
     }
     
+    /*
+    // Checks if Grid has changed.
+    public Boolean gridChange(){
+	if (
+    */
+
     //spawns a new tile at a random empty place
     public void spawn(){
-	if (_placesFilled < 15){
+	if (_placesFilled < 16){
 	    boolean didSpawn = false;
 	    while (didSpawn == false){
 		int row = (int)(Math.random() * 4);
 		int column = (int)(Math.random() * 4);
 		if( _game.isEmpty(row,column)){
-		    Tiles input = new Tiles();
+		    Equalizer input = new Tiles();
 		    _game.set(row,column,input);
+		    _score += input.getIntVal();
 		    _placesFilled += 1;
 		    didSpawn = true;
 		}
@@ -58,6 +66,7 @@ public class Game2048{
 	_game.get(row1,column1).doubleTile();
 	_game.remove(row2,column2);
 	int temp = _game.get(row1,column1).getIntVal();
+	_score += temp;
 	if (temp > highest){
 	    highest = temp;
 	}
@@ -145,6 +154,24 @@ public class Game2048{
 	_game.downJustify();
     }
 
+    //Player wins if highest = 2048
+    public void win(){
+	if (highest >= 2048){
+	    System.out.println("Congratulations, comrade. The holy God of 2048 commends you for your journey and dubs you a Knight of 2048.");
+	    System.out.println("May you protect the holiness for legends to come.");
+	}
+    }
+
+    //Player loses if all 16 tiles are filled (temporary)
+    public void lose(){
+	if(_placesFilled == 16){
+	    System.out.println("Adieu, comrade. You have made it thus far, but have fallen on the battlefield. The holy God of 2048 commends you for your efforts.");
+	    System.out.println("May you meet the holiness in another reincarnation.");
+	    return;
+	}
+	
+    }
+
     //simulates a turn after accepting user input
     public void turn(){
 	System.out.println("Use the keys A,D,W,S to swipe left, right, up, and down, respectively. ");
@@ -170,28 +197,31 @@ public class Game2048{
 
     //uses above methods to play a game of 2048
     public void game(){
+	String newBoard = "";
+
 	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
 	System.out.println();
-	spawn();
+	spawn(); 
 	printGrid();
 	turn();
 	
-	while(highest < 2048 || _placesFilled < 16){
+	while(highest < 2048 && _placesFilled < 16){
 	    System.out.println("Your journey continues. Stay strong!");
 	    System.out.println();
-	    spawn();
+	    // spawn(); // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+	    // Possible new code ---------------------------------
+	    if (newBoard.equals(_game) == false){
+		spawn();
+	    }
+	    //----------------------------------------------------
 	    printGrid();
+	    //newBoard = _game;
 	    turn();
 	}
-	
-	if (highest >= 2048){
-	    System.out.println("Congratulations, comrade. The holy God of 2048 commends you for your journey and dubs you a Knight of 2048.");
-	    System.out.println("May you protect the holiness for legends to come.");
-	} else if(_placesFilled >= 16){
-	    System.out.println("Adieu, comrade. You have made it thus far, but have fallen on the battlefield. The holy God of 2048 commends you for your efforts.");
-	    System.out.println("May you meet the holiness in another reincarnation.");
-	} 	
+	win();
+	lose();
     }
+	
 
     //main method
     public static void main(String[] args){

@@ -24,6 +24,11 @@ maybe some of these will move into the Obs.Ovrcm section...
 
 packages are limited. no clue how to hold just 2048 in the root of the repo...especially with an interface, yeesh
 
+2017-01-16
+-Issues with with the game where tiles continue to spawn even though player chooses a direction that doesn't allow for any tile movement/merges.
+-Lose() does not work
+
+
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
@@ -97,7 +102,7 @@ Samantha:: wrote interface Equalizer, constructor, and game(); fixed minor synta
 --------------------------------------------------------------
 :::Mark this day down as the day all our efforts bore fruit. It works!!!:::
 Carol:: resolved compile problems, tried some stuff with packaging.
-
+Judy :: Tested the game for any bugs.
 
 ==============================================================
 
