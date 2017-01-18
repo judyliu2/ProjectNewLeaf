@@ -68,7 +68,8 @@ public class Grid<t>{
     /*leftJustify() should move all significant values as left as they can go
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early*/
-    public void leftJustify(){
+    public Boolean leftJustify(){
+	Boolean movement = false; // Indicates if a swap has occurred
 	//go by row
 	for (int row = 0; row < userGrid.length; row ++){
 	    //do n - 1 passes
@@ -79,16 +80,20 @@ public class Grid<t>{
 		    if (get(row,column -1).equals(nullValue)){
 			//if so, swap
 			swap(row, column, row, column - 1);
+			movement = true; // Swap has occurred
 		    }
 		}	    
 	    }
 	}
+	return movement; // Passes result to swipe methods
     }
+    
     /*rightJustify() should move all significant values as right as they can go
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early
      */
-    public void rightJustify(){
+    public Boolean rightJustify(){
+	Boolean movement = false;
 	for (int row = 0; row < userGrid.length; row ++){
 	    //do n - 1 passes
 	    for (int pass = 0; pass < userGrid[0].length - 1; pass ++){
@@ -98,15 +103,18 @@ public class Grid<t>{
 		    if (get(row,column +1).equals(nullValue)){
 			//if so, swap
 			swap(row, column, row, column + 1);
+			movement = true;
 		    }
 		}	    
 	    }
 	}
+	return movement;
     }
     /*upJustify() should move all significant values as up as they can go
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early*/
-    public void upJustify(){
+    public Boolean upJustify(){
+	Boolean movement = false;
 	//go by column
 	for (int column = 0; column < userGrid[0].length; column ++){
 	    //do n - 1 passes
@@ -117,16 +125,19 @@ public class Grid<t>{
 		    if (get(row -1,column).equals(nullValue)){
 			//if so, swap
 			swap(row, column, row -1, column);
+			movement = true;
 		    }
 		}	    
 	    }
 	}
+	return movement;
     }
 
     /*downJustify() should move all significant values as down as they can go
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early*/
-    public void downJustify(){
+    public Boolean downJustify(){
+	Boolean movement = false;
 	//go by column
 	for (int column = 0; column < userGrid[0].length; column ++){
 	    //do n -1 passes
@@ -137,10 +148,12 @@ public class Grid<t>{
 		    if (get(row + 1,column).equals(nullValue)){
 			//if so, swap
 			swap(row, column, row + 1, column);
+			movement = true;
 		    }
 		}	    
 	    }
 	}
+	return movement;
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

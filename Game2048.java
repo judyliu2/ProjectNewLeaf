@@ -74,8 +74,10 @@ public class Game2048{
     }
 
     //simulates swiping to the left
-    public void swipeLeft(){
-	_game.leftJustify();
+    public Boolean swipeLeft(){
+	Boolean merge1 = false;
+	Boolean merge2 = false;
+	merge1 = _game.leftJustify();
 
 	//for each row
 	for (int r = 0; r < 4; r ++){
@@ -91,12 +93,15 @@ public class Game2048{
 		}
 	    }
 	}
-	_game.leftJustify();
+	merge2 = _game.leftJustify();
+	return merge1 || merge2;
     }
 
     //simulates swiping to the right
-    public void swipeRight(){
-	_game.rightJustify();
+    public Boolean swipeRight(){
+	Boolean merge1 = false;
+	Boolean merge2 = false;
+	merge1 = _game.rightJustify();
 	//for each row
 	for (int r = 0; r < 4; r ++){
 	    //for each instance in that row
@@ -111,12 +116,15 @@ public class Game2048{
 		}
 	    }
 	}
-	_game.rightJustify();
+	merge2 = _game.rightJustify();
+	return merge1 || merge2;
     }
 
     //simulates swiping up
-    public void swipeUp(){
-	_game.upJustify();
+    public Boolean swipeUp(){
+	Boolean merge1 = false;		
+	Boolean merge2 = false;		
+	merge1 = _game.upJustify();
 	//for each column
 	for (int c = 0; c < 4; c ++){
 	    //for each instance in that row
@@ -131,12 +139,15 @@ public class Game2048{
 		}
 	    }
 	}
-	_game.upJustify();
+	merge2 = _game.upJustify();
+	return merge1 || merge2;
     }
 
     //simulates swiping down
-    public void swipeDown(){
-	_game.downJustify();
+    public Boolean swipeDown(){
+	Boolean merge1 = false;
+	Boolean merge2 = false;
+	merge1 = _game.downJustify();
 	//for each column
 	for (int c = 0; c < 4; c ++){
 	    //for each instance in that row
@@ -151,7 +162,8 @@ public class Game2048{
 		}
 	    }
 	}
-	_game.downJustify();
+	merge2 = _game.downJustify();
+	return merge1 || merge2;
     }
 
     //Player wins if highest = 2048
@@ -167,13 +179,13 @@ public class Game2048{
 	if(_placesFilled == 16){
 	    System.out.println("Adieu, comrade. You have made it thus far, but have fallen on the battlefield. The holy God of 2048 commends you for your efforts.");
 	    System.out.println("May you meet the holiness in another reincarnation.");
-	    return;
 	}
 	
     }
 
     //simulates a turn after accepting user input
     public void turn(){
+	Boolean merge = false; // Merge Indicators - passed from Justify methods
 	System.out.println("Use the keys A,D,W,S to swipe left, right, up, and down, respectively. ");
 	System.out.println();
 	
@@ -182,13 +194,32 @@ public class Game2048{
 	String userInput = Keyboard.readString().trim().toUpperCase();
 
 	if (userInput.equals("A")){
-	    swipeLeft();
+	    merge = swipeLeft(); 
+	    System.out.println(merge); // Debugging Code
+	    if (merge == true){
+		spawn();
+	    }
 	} else if (userInput.equals("D")){
-	    swipeRight();
+	    merge = swipeRight();
+	    System.out.println(merge); // Debugging Code
+
+	    if (merge == true){
+		spawn();
+	    }
 	} else if (userInput.equals("W")){
-	    swipeUp();
+	    merge = swipeUp();
+	    System.out.println(merge); // Debugging Code
+
+	    if (merge == true){
+		spawn();
+	    }
 	} else if (userInput.equals("S")){
-	    swipeDown();
+	    merge = swipeDown();
+	    System.out.println(merge); // Debugging Code
+
+	    if (merge == true){
+		spawn();
+	    }
 	} else {
 	    System.out.println("You have disobeyed the laws of the land. Try again if you wish to ever meet the lord.");
 	    turn();
@@ -197,25 +228,16 @@ public class Game2048{
 
     //uses above methods to play a game of 2048
     public void game(){
-	String newBoard = "";
-
 	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
 	System.out.println();
-	spawn(); 
+	spawn();
 	printGrid();
 	turn();
 	
 	while(highest < 2048 && _placesFilled < 16){
 	    System.out.println("Your journey continues. Stay strong!");
 	    System.out.println();
-	    // spawn(); // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-	    // Possible new code ---------------------------------
-	    if (newBoard.equals(_game) == false){
-		spawn();
-	    }
-	    //----------------------------------------------------
 	    printGrid();
-	    //newBoard = _game;
 	    turn();
 	}
 	win();
