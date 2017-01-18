@@ -154,6 +154,24 @@ public class Game2048{
 	_game.downJustify();
     }
 
+    //Player wins if highest = 2048
+    public void win(){
+	if (highest >= 2048){
+	    System.out.println("Congratulations, comrade. The holy God of 2048 commends you for your journey and dubs you a Knight of 2048.");
+	    System.out.println("May you protect the holiness for legends to come.");
+	}
+    }
+
+    //Player loses if all 16 tiles are filled (temporary)
+    public void lose(){
+	if(_placesFilled == 16){
+	    System.out.println("Adieu, comrade. You have made it thus far, but have fallen on the battlefield. The holy God of 2048 commends you for your efforts.");
+	    System.out.println("May you meet the holiness in another reincarnation.");
+	    return;
+	}
+	
+    }
+
     //simulates a turn after accepting user input
     public void turn(){
 	System.out.println("Use the keys A,D,W,S to swipe left, right, up, and down, respectively. ");
@@ -187,7 +205,7 @@ public class Game2048{
 	printGrid();
 	turn();
 	
-	while(highest < 2048 || _placesFilled < 16){
+	while(highest < 2048 && _placesFilled < 16){
 	    System.out.println("Your journey continues. Stay strong!");
 	    System.out.println();
 	    // spawn(); // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -197,18 +215,13 @@ public class Game2048{
 	    }
 	    //----------------------------------------------------
 	    printGrid();
-	    newBoard = _game;
+	    //newBoard = _game;
 	    turn();
 	}
-	
-	if (highest >= 2048){
-	    System.out.println("Congratulations, comrade. The holy God of 2048 commends you for your journey and dubs you a Knight of 2048.");
-	    System.out.println("May you protect the holiness for legends to come.");
-	} else if(_placesFilled >= 16){
-	    System.out.println("Adieu, comrade. You have made it thus far, but have fallen on the battlefield. The holy God of 2048 commends you for your efforts.");
-	    System.out.println("May you meet the holiness in another reincarnation.");
-	} 	
+	win();
+	lose();
     }
+	
 
     //main method
     public static void main(String[] args){
