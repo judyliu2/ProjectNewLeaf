@@ -74,10 +74,9 @@ public class Game2048{
     }
 
     //simulates swiping to the left
-    public Boolean swipeLeft(){
-	Boolean merge1 = false;
-	Boolean merge2 = false;
-	merge1 = _game.leftJustify();
+    public boolean swipeLeft(){
+	boolean move = _game.leftJustify();
+	boolean merges = false;
 
 	//for each row
 	for (int r = 0; r < 4; r ++){
@@ -88,20 +87,22 @@ public class Game2048{
 		    //check if it's the same as it's neighbor
 		    if(_game.get(r,c).isEqual(_game.get(r,c+1))){
 			merge(r,c,r,c+1);//if so, merge
+			merges = true;
 			c+=1;//don't know if this works
 		    }
 		}
 	    }
 	}
-	merge2 = _game.leftJustify();
-	return merge1 || merge2;
+	if (merges){
+	    _game.leftJustify();
+	}
+	return move || merges;
     }
 
     //simulates swiping to the right
-    public Boolean swipeRight(){
-	Boolean merge1 = false;
-	Boolean merge2 = false;
-	merge1 = _game.rightJustify();
+    public boolean swipeRight(){
+	boolean move =  _game.rightJustify();;
+	boolean merges = false;
 	//for each row
 	for (int r = 0; r < 4; r ++){
 	    //for each instance in that row
@@ -111,20 +112,22 @@ public class Game2048{
 		    //check if it's the same as it's neighbor
 		    if(_game.get(r,c).isEqual(_game.get(r,c-1))){
 			merge(r,c,r,c-1);//if so, merge
+			merges = true;
 			c-=1;//don't know if this works
 		    }
 		}
 	    }
 	}
-	merge2 = _game.rightJustify();
-	return merge1 || merge2;
+	if (merges){
+	    _game.rightJustify();
+	}
+	return move || merges;
     }
 
     //simulates swiping up
-    public Boolean swipeUp(){
-	Boolean merge1 = false;		
-	Boolean merge2 = false;		
-	merge1 = _game.upJustify();
+    public boolean swipeUp(){
+	boolean move = _game.upJustify();		
+	boolean merges = false;		
 	//for each column
 	for (int c = 0; c < 4; c ++){
 	    //for each instance in that row
@@ -134,20 +137,22 @@ public class Game2048{
 		    //check if it's the same as it's neighbor
 		    if(_game.get(r,c).isEqual(_game.get(r+1,c))){
 			merge(r,c,r+1,c);//if so, merge
+			merges = true;
 			r+=1;//don't know if this works
 		    }
 		}
 	    }
 	}
-	merge2 = _game.upJustify();
-	return merge1 || merge2;
+	if (merges){
+	    _game.upJustify();
+	}
+	return move || merges;
     }
 
     //simulates swiping down
-    public Boolean swipeDown(){
-	Boolean merge1 = false;
-	Boolean merge2 = false;
-	merge1 = _game.downJustify();
+    public boolean swipeDown(){
+	boolean move =  _game.downJustify();
+	boolean merges = false;
 	//for each column
 	for (int c = 0; c < 4; c ++){
 	    //for each instance in that row
@@ -157,13 +162,16 @@ public class Game2048{
 		    //check if it's the same as it's neighbor
 		    if(_game.get(r,c).isEqual(_game.get(r-1,c))){
 			merge(r,c,r-1,c);//if so, merge
+			merges = true;
 			r-=1;//don't know if this works
 		    }
 		}
 	    }
 	}
-	merge2 = _game.downJustify();
-	return merge1 || merge2;
+	if (merges){
+	    _game.downJustify();
+	}
+	return move || merges;
     }
 
     //Player wins if highest = 2048
@@ -185,7 +193,7 @@ public class Game2048{
 
     //simulates a turn after accepting user input
     public void turn(){
-	Boolean merge = false; // Merge Indicators - passed from Justify methods
+	boolean merge = false; // Merge Indicators - passed from Justify methods
 	System.out.println("Use the keys A,D,W,S to swipe left, right, up, and down, respectively. ");
 	System.out.println();
 	
@@ -195,30 +203,44 @@ public class Game2048{
 
 	if (userInput.equals("A")){
 	    merge = swipeLeft(); 
-	    System.out.println(merge); // Debugging Code
+	    //System.out.println(merge); // Debugging Code
 	    if (merge == true){
 		spawn();
+	    }
+	    else{
+		System.out.println("Do you take me for a fool? That doesn't do anything! Try another direction!");
 	    }
 	} else if (userInput.equals("D")){
 	    merge = swipeRight();
-	    System.out.println(merge); // Debugging Code
+	    //System.out.println(merge); // Debugging Code
 
 	    if (merge == true){
 		spawn();
 	    }
+	    else{
+		System.out.println("Do you take me for a fool? That doesn't do anything! Try another direction!");
+	    }
+		
+
 	} else if (userInput.equals("W")){
 	    merge = swipeUp();
-	    System.out.println(merge); // Debugging Code
+	    //System.out.println(merge); // Debugging Code
 
 	    if (merge == true){
 		spawn();
+	    }
+	    else{
+		System.out.println("Do you take me for a fool? That doesn't do anything! Try another direction!");
 	    }
 	} else if (userInput.equals("S")){
 	    merge = swipeDown();
-	    System.out.println(merge); // Debugging Code
+	    //System.out.println(merge); // Debugging Code
 
 	    if (merge == true){
 		spawn();
+	    }
+	    else{
+		System.out.println("Do you take me for a fool? That doesn't do anything! Try another direction!");
 	    }
 	} else {
 	    System.out.println("You have disobeyed the laws of the land. Try again if you wish to ever meet the lord.");

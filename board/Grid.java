@@ -68,8 +68,8 @@ public class Grid<t>{
     /*leftJustify() should move all significant values as left as they can go
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early*/
-    public Boolean leftJustify(){
-	Boolean movement = false; // Indicates if a swap has occurred
+    public boolean leftJustify(){
+	boolean movement = false; // Indicates if a swap has occurred
 	//go by row
 	for (int row = 0; row < userGrid.length; row ++){
 	    //do n - 1 passes
@@ -77,7 +77,8 @@ public class Grid<t>{
 		//for each column in that row
 		for (int column = userGrid[0].length - 1; column > 0; column --){
 		    //check for presence of nullValue to the left
-		    if (get(row,column -1).equals(nullValue)){
+		    if (get(row,column -1).equals(nullValue) &&
+			!(get(row, column).equals(nullValue))){
 			//if so, swap
 			swap(row, column, row, column - 1);
 			movement = true; // Swap has occurred
@@ -92,15 +93,16 @@ public class Grid<t>{
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early
      */
-    public Boolean rightJustify(){
-	Boolean movement = false;
+    public boolean rightJustify(){
+	boolean movement = false;
 	for (int row = 0; row < userGrid.length; row ++){
 	    //do n - 1 passes
 	    for (int pass = 0; pass < userGrid[0].length - 1; pass ++){
 		//for each column in that row
 		for (int column = 0; column < userGrid[0].length - 1; column ++){
 		    //check for presence of nullValue to the right
-		    if (get(row,column +1).equals(nullValue)){
+		    if (get(row,column +1).equals(nullValue)&&
+			!(get(row, column).equals(nullValue))){
 			//if so, swap
 			swap(row, column, row, column + 1);
 			movement = true;
@@ -113,8 +115,8 @@ public class Grid<t>{
     /*upJustify() should move all significant values as up as they can go
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early*/
-    public Boolean upJustify(){
-	Boolean movement = false;
+    public boolean upJustify(){
+	boolean movement = false;
 	//go by column
 	for (int column = 0; column < userGrid[0].length; column ++){
 	    //do n - 1 passes
@@ -122,7 +124,8 @@ public class Grid<t>{
 		//for each row in that column
 		for (int row = userGrid.length - 1; row > 0; row --){
 		    //check for nullValue presence above
-		    if (get(row -1,column).equals(nullValue)){
+		    if (get(row -1,column).equals(nullValue)&&
+			!(get(row, column).equals(nullValue))){
 			//if so, swap
 			swap(row, column, row -1, column);
 			movement = true;
@@ -136,8 +139,8 @@ public class Grid<t>{
     /*downJustify() should move all significant values as down as they can go
       uses a bubbling method to push all non-nullValues to that direction
       vanilla version, not exit early*/
-    public Boolean downJustify(){
-	Boolean movement = false;
+    public boolean downJustify(){
+	boolean movement = false;
 	//go by column
 	for (int column = 0; column < userGrid[0].length; column ++){
 	    //do n -1 passes
@@ -145,7 +148,8 @@ public class Grid<t>{
 		//for each row in that column
 		for (int row = 0; row < userGrid.length - 1; row ++){
 		    //check for nullValue presence below
-		    if (get(row + 1,column).equals(nullValue)){
+		    if (get(row + 1,column).equals(nullValue)&&
+			!(get(row, column).equals(nullValue))){
 			//if so, swap
 			swap(row, column, row + 1, column);
 			movement = true;
