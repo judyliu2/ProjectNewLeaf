@@ -15,20 +15,20 @@ public class Game2048{
     private int _placesFilled;
     private int _score;
     private int highest;
-    private int row;
-    private int column;
+    private int rows;
+    private int columns;
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
     //~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~
     public Game2048(){
 	Empty nullVal = new Empty();
-	_game = new Grid<Equalizer>(4,4,nullVal);
+	rows = 4;
+	columns = 4;
+	_game = new Grid<Equalizer>(columns,rows,nullVal);
 	_placesFilled = 0;
 	_score = 0;
 	highest = 0;
-	row = 4;
-	column = 4;
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -39,8 +39,8 @@ public class Game2048{
 	_placesFilled = 0;
 	_score = 0;
 	highest = 0;
-	row = y;
-	column = x;
+	rows = y;
+	columns = x;
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -192,16 +192,95 @@ public class Game2048{
 	}
     }
 
-    //Player loses if all 16 tiles are filled (temporary)
+    //checks for any mergeable tile based on given coordinates
+    public boolean checker(int x, int y){
+	boolean matches = false;
+	//case for inner tiles, where tiles can be compared to neighboring tiles in all 4 directions
+	if ((x > 0 && x < rows-1) && (y > 0 && y < columns-1)){
+	    matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
+		       _game.get(x,y).isEqual(_game.get(x+1,y)) ||
+		       _game.get(x,y).isEqual(_game.get(x,y-1)) ||
+		       _game.get(x,y).isEqual(_game.get(x,y+1)));
+	}
+
+	//cases for "corners" and "sides" of the grid
+	//top side of the grid
+	if (x == 0 ){
+	    if (y == 0){
+		matches = (_game.get(x,y).isEqual(_game.get(x+1,y)) ||
+		       _game.get(x,y).isEqual(_game.get(x,y+1)));
+	    }
+	    else if ( y == columns-1){
+	    matches = (_game.get(x,y).isEqual(_game.get(x+1,y)) ||
+		       _game.get(x,y).isEqual(_game.get(x,y-1)));
+	    }
+	    else {
+		matches = (_game.get(x,y).isEqual(_game.get(x,y-1)) ||
+			   _game.get(x,y).isEqual(_game.get(x+1,y)) ||
+			   _game.get(x,y).isEqual(_game.get(x,y+1)));
+	    }
+	}
+	//left side of grid
+	else if(y == 0){
+	    if ( x == rows -1){
+		matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
+		       _game.get(x,y).isEqual(_game.get(x,y+1)));
+	    }
+	    else{
+		matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
+		       _game.get(x,y).isEqual(_game.get(x,y+1)) ||
+		       _game.get(x,y).isEqual(_game.get(x+1,y)));
+	    }
+	}
+
+	//bottom side of grid
+	else if (x == rows -1){
+	    if (y == columns -1){
+		matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
+			   _game.get(x,y).isEqual(_game.get(x,y-1)));
+	    }
+	    else{
+		matches = (_game.get(x,y).isEqual(_game.get(x,y-1)) ||
+			   _game.get(x,y).isEqual(_game.get(x-1,y)) ||
+		       _game.get(x,y).isEqual(_game.get(x,y+1)));
+	    }
+	}
+
+	//right side of grid
+	else{
+	    matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
+		       _game.get(x,y).isEqual(_game.get(x,y-1)) ||
+		       _game.get(x,y).isEqual(_game.get(x+1,y)));
+	}
+	return matches;
+    }
+    
+    //Player loses if all tiles are filled (temporary)
     public void lose(){
+	boolean chance = false;
+	//checks if about half the tiles in the board is mergeable 
+	for ( int x = rows % 2; x < rows; x+=2){
+	    for( int y = columns % 2; y < columns; y+=2){
+		//check if any of these tiles are mergeable with their neighbors
+		chance = checker(x,y);
+	    }
+	}
+	for ( int x = rows % 2 + 1; x < rows; x+=2){
+	    for( int y = columns % 2 + 1; y < columns; y+=2){
+		//check if any of these tiles are mergable with their neighbors
+		chance = checker(x,y);
+	    }
+	}
+	
 	if(_placesFilled == 16){
+	    if (chance == false){
 	    System.out.println("Adieu, comrade. You have made it thus far, but have fallen on the battlefield. The holy God of 2048 commends you for your efforts.");
 	    System.out.println("May you meet the holiness in another reincarnation.");
+	    }
 	}
 	
     }
 
-public void 
 
     //simulates a turn after accepting user input
     public void turn(){
@@ -268,14 +347,17 @@ public void
 	printGrid();
 	turn();
 	
-	while(highest < 2048 && _placesFilled < 16){
+	while(highest < 2048){
 	    System.out.println("Your journey continues. Stay strong!");
 	    System.out.println();
 	    printGrid();
 	    turn();
+	    if (_placesFilled == rows * columns){
+		lose();
+	    }
 	}
 	win();
-	lose();
+	printGrid();
     }
 	
 
