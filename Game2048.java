@@ -15,6 +15,8 @@ public class Game2048{
     private int _placesFilled;
     private int _score;
     private int highest;
+    private int row;
+    private int column;
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -25,6 +27,20 @@ public class Game2048{
 	_placesFilled = 0;
 	_score = 0;
 	highest = 0;
+	row = 4;
+	column = 4;
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    //~~~~Overloaded constructor~~~~~~~~~~~~~~~~~~
+    public Game2048(int x, int y){
+	Empty nullVal = new Empty();
+	_game = new Grid<Equalizer>(y,x,nullVal);
+	_placesFilled = 0;
+	_score = 0;
+	highest = 0;
+	row = y;
+	column = x;
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -35,12 +51,6 @@ public class Game2048{
 	System.out.println("Score: " + _score);
 	System.out.println(_game);
     }
-    
-    /*
-    // Checks if Grid has changed.
-    public Boolean gridChange(){
-	if (
-    */
 
     //spawns a new tile at a random empty place
     public void spawn(){
@@ -190,6 +200,8 @@ public class Game2048{
 	}
 	
     }
+
+public void 
 
     //simulates a turn after accepting user input
     public void turn(){
