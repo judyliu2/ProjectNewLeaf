@@ -94,15 +94,23 @@ Judy :: Created Tiles and Empty classes and their methods.
 
 2017-01-15
 --------------------------------------------------------------
-Carol:: created a skeleton for 2048, added Keyboard.java, augmented Grid, added 2048 functionality and swiping
-Judy:: wrote turn() 2048, changed "2048.java" to "Game2048.java", helped with swipe() methods 
-Samantha:: wrote interface Equalizer, constructor, and game(); fixed minor syntax; augmented turn()
+Carol :: created a skeleton for 2048, added Keyboard.java, augmented Grid, added 2048 functionality and swiping
+Judy :: wrote turn() 2048, changed "2048.java" to "Game2048.java", helped with swipe() methods 
+Samantha :: wrote interface Equalizer, constructor, and game(); fixed minor syntax; augmented turn()
 
 2017-01-16
 --------------------------------------------------------------
 :::Mark this day down as the day all our efforts bore fruit. It works!!!:::
-Carol:: resolved compile problems, tried some stuff with packaging.
+Carol :: resolved compile problems, tried some stuff with packaging.
 Judy :: Tested the game for any bugs.
 
-==============================================================
+
+2017-01-17
+--------------------------------------------------------------
+All: Worked together to solve swipe() bug.
+
+
+2017-01-19
+--------------------------------------------------------------
+Judy :: Made method checker() to check if neighbors of a tile is mergeable to itself, used this method to determine if the player loses after the grid is filled.
 
