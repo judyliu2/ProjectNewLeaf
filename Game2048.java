@@ -281,7 +281,7 @@ public class Game2048{
     }
     
     //Player loses if all tiles are filled (temporary)
-    public void lose(){
+    public boolean lose(){
 	boolean chance = false;
 	//checks if about half the tiles in the board is mergeable 
 	for ( int x = rows % 2; x < rows; x+=2){
@@ -307,7 +307,7 @@ public class Game2048{
 	    System.out.println("May you meet the holiness in another reincarnation.");
 	    }
 	}
-	
+	return chance;
     }
 
 
@@ -382,7 +382,9 @@ public class Game2048{
 	    printGrid();
 	    turn();
 	    if (_placesFilled == rows * columns){
-		lose();
+		if (lose() == false){
+		    return;
+		}
 	    }
 	}
 	win();
