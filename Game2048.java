@@ -195,14 +195,14 @@ public class Game2048{
     public boolean checker(){
 	boolean hasMerge = false;
 	//for each row
-	for (int row = 0, row < 4, row ++){
+	for (int row = 0; row < rows; row ++){
 	    //and each column
-	    for (int column = 0, column < 4, column ++){
-		if (row < (4 - 1)){//if it's not in the last row
+	    for (int column = 0; column < columns; column ++){
+		if (row < (rows - 1)){//if it's not in the last row
 		    hasMerge = hasMerge || _game.get(row, column).isEqual(_game.get(row + 1, column));
 		    //is it equal to the one under it?
 		}
-		if (column < (4 - 1)){//if it's not in the last column
+		if (column < (columns - 1)){//if it's not in the last column
 		    hasMerge = hasMerge || _game.get (row, column).isEqual(_game.get(row, column + 1));
 		    //is it equal to the one right of it?
 		}
@@ -211,6 +211,7 @@ public class Game2048{
 		}
 	    }
 	}
+	return hasMerge;
     }
 		
 		
