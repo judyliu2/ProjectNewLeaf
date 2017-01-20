@@ -57,11 +57,11 @@ public class Game2048{
 	if (_placesFilled < 16){
 	    boolean didSpawn = false;
 	    while (didSpawn == false){
-		int row = (int)(Math.random() * 4);
-		int column = (int)(Math.random() * 4);
-		if( _game.isEmpty(row,column)){
+		int r = (int)(Math.random() * rows);
+		int c = (int)(Math.random() * columns);
+		if( _game.isEmpty(r,c)){
 		    Equalizer input = new Tiles();
-		    _game.set(row,column,input);
+		    _game.set(r,c,input);
 		    _score += input.getIntVal();
 		    _placesFilled += 1;
 		    didSpawn = true;
@@ -89,9 +89,9 @@ public class Game2048{
 	boolean merges = false;
 
 	//for each row
-	for (int r = 0; r < 4; r ++){
+	for (int r = 0; r < rows; r ++){
 	    //for each instance in that row
-	    for (int c = 0; c < 3; c ++){
+	    for (int c = 0; c < columns - 1; c ++){
 		//so long as it's not a nullValue
 		if (!(_game.isEmpty(r,c))){
 		    //check if it's the same as it's neighbor
@@ -114,9 +114,9 @@ public class Game2048{
 	boolean move =  _game.rightJustify();;
 	boolean merges = false;
 	//for each row
-	for (int r = 0; r < 4; r ++){
+	for (int r = 0; r < rows; r ++){
 	    //for each instance in that row
-	    for (int c = 3; c > 0; c --){
+	    for (int c = columns - 1; c > 0; c --){
 		//so long as it's not a nullValue
 		if (!(_game.isEmpty(r,c))){
 		    //check if it's the same as it's neighbor
@@ -139,9 +139,9 @@ public class Game2048{
 	boolean move = _game.upJustify();		
 	boolean merges = false;		
 	//for each column
-	for (int c = 0; c < 4; c ++){
+	for (int c = 0; c < columns; c ++){
 	    //for each instance in that row
-	    for (int r = 0; r < 3; r ++){
+	    for (int r = 0; r < rows - 1; r ++){
 		//so long as it's not a nullValue
 		if (!(_game.isEmpty(r,c))){
 		    //check if it's the same as it's neighbor
@@ -164,9 +164,9 @@ public class Game2048{
 	boolean move =  _game.downJustify();
 	boolean merges = false;
 	//for each column
-	for (int c = 0; c < 4; c ++){
+	for (int c = 0; c < columns; c ++){
 	    //for each instance in that row
-	    for (int r = 3; r > 0; r --){
+	    for (int r = rows - 1; r > 0; r --){
 		//so long as it's not a nullValue
 		if (!(_game.isEmpty(r,c))){
 		    //check if it's the same as it's neighbor
