@@ -191,6 +191,30 @@ public class Game2048{
 	    System.out.println("May you protect the holiness for legends to come.");
 	}
     }
+    //checks for any mergeable tile on _game()
+    public boolean checker(){
+	boolean hasMerge = false;
+	//for each row
+	for (int row = 0, row < 4, row ++){
+	    //and each column
+	    for (int column = 0, column < 4, column ++){
+		if (row < (4 - 1)){//if it's not in the last row
+		    hasMerge = hasMerge || _game.get(row, column).isEqual(_game.get(row + 1, column));
+		    //is it equal to the one under it?
+		}
+		if (column < (4 - 1)){//if it's not in the last column
+		    hasMerge = hasMerge || _game.get (row, column).isEqual(_game.get(row, column + 1));
+		    //is it equal to the one right of it?
+		}
+		if (hasMerge){//if it can merge
+		    return hasMerge;//exit this method
+		}
+	    }
+	}
+    }
+		
+		
+	    
 
     //checks for any mergeable tile based on given coordinates
     public boolean checker(int x, int y){
@@ -262,14 +286,18 @@ public class Game2048{
 	for ( int x = rows % 2; x < rows; x+=2){
 	    for( int y = columns % 2; y < columns; y+=2){
 		//check if any of these tiles are mergeable with their neighbors
-		chance = checker(x,y);
+		chance = chance || checker(x,y);
+		if ( chance == true){break;}
 	    }
+	    if ( chance == true){break;}
 	}
 	for ( int x = rows % 2 + 1; x < rows; x+=2){
 	    for( int y = columns % 2 + 1; y < columns; y+=2){
 		//check if any of these tiles are mergable with their neighbors
-		chance = checker(x,y);
+		chance = chance || checker(x,y);
+		if ( chance == true){break;}
 	    }
+	    if ( chance == true){break;}
 	}
 	
 	if(_placesFilled == 16){
