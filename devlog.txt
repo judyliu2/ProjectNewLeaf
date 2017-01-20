@@ -112,5 +112,5 @@ All: Worked together to solve swipe() bug.
 
 2017-01-19
 --------------------------------------------------------------
-Judy :: Made method checker() to check if neighbors of a tile is mergeable to itself, used this method to determine if the player loses after the grid is filled.
+Judy :: Made method checker() to check if neighbors of a tile is mergeable to itself, used this method to determine if the player loses after the grid is filled and updated UML diagram.
 
