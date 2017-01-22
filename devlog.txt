@@ -33,17 +33,19 @@ COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow! oo!...
 
-Learned what a package is, and explored importation. Though, this is hard to apply...
+1. Learned what a package is, and explored importation. Though, this is hard to apply...
+
+2. Learned how to justify up and down in a 2D array
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 we changed ___ to ___ bc...
 
-2017-01-12
--We made a new class called Grid2 to contain integers instead of Tiles (temporarily) because Tile class wasn't created yet. 
+1. 2017-01-12
+   We made a new class called Grid2 to contain integers instead of Tiles (temporarily) because Tile class wasn't created yet. 
 
-2017-01-18
--We decided to let the user change the Grid size instead of using a standard 4x4 Grid all the time because it would have improved UX and allow the user to choose their own difficulty levels.
+2. 2017-01-18
+   We decided to let the user change the Grid size instead of using a standard 4x4 Grid all the time because it would have improved UX and allow the user to choose their own difficulty levels.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
