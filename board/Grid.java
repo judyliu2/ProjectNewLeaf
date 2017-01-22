@@ -75,7 +75,7 @@ public class Grid<t>{
 	    //do n - 1 passes
 	    for (int pass = 0; pass < userGrid[0].length - 1; pass ++){
 		//for each column in that row
-		for (int column = userGrid[0].length - 1; column > 0; column --){
+		for (int column = userGrid[0].length - 1; column > 0; column--){
 		    //check for presence of nullValue to the left
 		    if (get(row,column -1).equals(nullValue) &&
 			!(get(row, column).equals(nullValue))){

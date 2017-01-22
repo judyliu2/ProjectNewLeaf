@@ -1,3 +1,5 @@
+// Team Project New Leaf - Carol Pan, Judy Liu, Samantha Ngo
+// APCS1 - pd3
 
 /*Driver Class 2048
 contains a user interactive game that will utilize all the files located
@@ -17,15 +19,16 @@ public class Woo{
     private int highest;
     private int rows;
     private int columns;
+    private Empty nullVal = new Empty();
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
     //~~~~~~~~~~~~constructor~~~~~~~~~~~~~~~~~~
     public Woo(){
-	Empty nullVal = new Empty();
-	rows = 4;
-	columns = 4;
-	_game = new Grid<Equalizer>(columns,rows,nullVal);
+	//	Empty nullVal = new Empty();
+	// rows = 4;
+	// columns = 4;
+	//	_game = new Grid<Equalizer>(columns,rows,nullVal);
 	_placesFilled = 0;
 	_score = 0;
 	highest = 0;
@@ -34,13 +37,13 @@ public class Woo{
 
     //~~~~Overloaded constructor~~~~~~~~~~~~~~~~~~
     public Woo(int x, int y){
-	Empty nullVal = new Empty();
-	_game = new Grid<Equalizer>(y,x,nullVal);
+	//	Empty nullVal = new Empty();
+	//_game = new Grid<Equalizer>(y,x,nullVal);
 	_placesFilled = 0;
 	_score = 0;
 	highest = 0;
-	rows = y;
-	columns = x;
+	//rows = y;
+	//columns = x;
     }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -54,7 +57,7 @@ public class Woo{
 
     //spawns a new tile at a random empty place
     public void spawn(){
-	if (_placesFilled < 16){
+	if (_placesFilled < (rows * columns)){
 	    boolean didSpawn = false;
 	    while (didSpawn == false){
 		int r = (int)(Math.random() * rows);
@@ -184,13 +187,14 @@ public class Woo{
 	return move || merges;
     }
 
-    //Player wins if highest = 2048
+    //Player wins if highest tile's value is 2048
     public void win(){
 	if (highest >= 2048){
 	    System.out.println("Congratulations, comrade. The holy God of 2048 commends you for your journey and dubs you a Knight of 2048.");
 	    System.out.println("May you protect the holiness for legends to come.");
 	}
     }
+    
     //checks for any mergeable tile on _game()
     public boolean checker(){
 	boolean hasMerge = false;
@@ -212,10 +216,7 @@ public class Woo{
 	    }
 	}
 	return hasMerge;
-    }
-		
-		
-	    
+    }	    
 
     //checks for any mergeable tile based on given coordinates
     public boolean checker(int x, int y){
@@ -308,7 +309,6 @@ public class Woo{
 	return chance;
     }
 
-
     //simulates a turn after accepting user input
     public void turn(){
 	boolean merge = false; // Merge Indicators - passed from Justify methods
@@ -359,6 +359,43 @@ public class Woo{
 
     //uses above methods to play a game of 2048
     public void game(){
+	//Asks user if they want to customize their grids. 1 for regular sized grid and 2 for customization
+	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
+	System.out.println();
+	System.out.println("What would you like the size of your grid to be? \n Press 1 for normal grid. \n Press 2 to customize size.");
+	System.out.println();
+
+	// Read user input
+	int userInput1 = Keyboard.readInt();
+	while (!(userInput1 == 1 || userInput1 == 2)){
+	    System.out.print("\nYou must make a proper decision. The world is at a standstill.\n");
+	    userInput1 = Keyboard.readInt();
+	}
+	if (userInput1 == 1){
+	    columns = 4;
+	    rows = 4;
+
+	}
+	//if user wants to customize grid size, it only takes an integer from 2~10, inclusive; otherwise, the user has to try another input.
+	else if (userInput1 == 2){
+	    System.out.println("\nHow wide would you like your grid to be? Our selections range from 2 to 10");
+	    int userInputx = Keyboard.readInt();
+	    while(userInputx == -1 || (userInputx < 2 || userInputx > 10)){
+		 System.out.print("\nYou must make a proper decision. The world is at a standstill.\n");
+		 userInputx = Keyboard.readInt();
+	    }
+	    System.out.println("\nHow tall would you like your grid to be? Our selections range from 2 to 10");
+	    int userInputy = Keyboard.readInt();
+	    while(userInputy == -1 || (userInputy < 2 || userInputy > 10)){
+		 System.out.print("\nYou must make a proper decision. The world is at a standstill.\n");
+		 userInputy = Keyboard.readInt();
+	    }
+	    columns = userInputx;
+	    rows = userInputy;	   
+	}
+
+	_game = new Grid<Equalizer>(columns,rows,nullVal);
+	
 	System.out.println("Now, you may embark on your journey. Best of luck to you...");
 	System.out.println();
 	spawn();
@@ -370,7 +407,7 @@ public class Woo{
 	    System.out.println();
 	    printGrid();
 	    turn();
-	    if (_placesFilled == rows * columns){
+	    if (_placesFilled == (rows * columns)){
 		if (lose() == false){
 		    return;
 		}
@@ -382,6 +419,10 @@ public class Woo{
 
     //main method
     public static void main(String[] args){
+	Woo bob = new Woo();
+
+	bob.game();
+	/*
 	//Asks user if they want to customize their grids. 1 for regular sized grid and 2 for customization
 	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
 	System.out.println();
@@ -416,7 +457,7 @@ public class Woo{
 	    Woo bob = new Woo(userInputx, userInputy);
 	    bob.game();
 	}
-	
+	*/
     }
     
 }//end class Woo2
