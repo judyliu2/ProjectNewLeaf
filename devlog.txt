@@ -12,21 +12,21 @@ pd 3
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 wow we so BOSS bc...
-we figured out how to separate significant and insignificant values in 2D arrays!
-we figured out justification, and it works like a dream!!!
+
+1. We figured out how to separate significant and insignificant values in 2D arrays! By using a specific instance as a nullValue, we can keep track of where it isn't significant.
+
+2. We figured out justification, and it works very nicely!
+
+3. We added features that would ensure that the user is accordingly limited in ther options. From now on, you can't swipe in a direction that wouldn't change the current grid.
+
+4. We found a way to continue the game if the board is filled but there are still tiles that can merge.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 blah blah pesky bug...
 maybe some of these will move into the Obs.Ovrcm section...
 
-2D arrays are much more complex than 1D arrays. how do you show there's no significant value at a place?
-
-packages are limited. no clue how to hold just 2048 in the root of the repo...especially with an interface, yeesh
-
-2017-01-16
--Issues with with the game where tiles continue to spawn even though player chooses a direction that doesn't allow for any tile movement/merges.
--Lose() does not work
+1. Packages are limited. No clue how to hold just 2048 in the root of the repo...especially with an interface, yeesh.
 
 
 COOL STUFF LEARNED
@@ -114,3 +114,7 @@ All: Worked together to solve swipe() bug.
 --------------------------------------------------------------
 Judy :: Made method checker() to check if neighbors of a tile is mergeable to itself, used this method to determine if the player loses after the grid is filled and updated UML diagram.
 
+2017-01-22
+--------------------------------------------------------------
+Carol:: updated and uploaded uml.pdf
+==============================================================
