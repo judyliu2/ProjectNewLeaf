@@ -51,7 +51,7 @@ LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
 
--
+1. Merge conflicts happen a lot. Thus, coordination is key.
 
 
 
