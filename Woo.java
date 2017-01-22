@@ -238,20 +238,19 @@ public class Woo{
 	    else if ( y == columns-1){
 	    matches = (_game.get(x,y).isEqual(_game.get(x+1,y)) ||
 		       _game.get(x,y).isEqual(_game.get(x,y-1)));
-	    }
-	    else {
+	    } else {
 		matches = (_game.get(x,y).isEqual(_game.get(x,y-1)) ||
 			   _game.get(x,y).isEqual(_game.get(x+1,y)) ||
 			   _game.get(x,y).isEqual(_game.get(x,y+1)));
 	    }
 	}
+	
 	//left side of grid
 	else if(y == 0){
 	    if ( x == rows -1){
 		matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
 		       _game.get(x,y).isEqual(_game.get(x,y+1)));
-	    }
-	    else{
+	    } else {
 		matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
 		       _game.get(x,y).isEqual(_game.get(x,y+1)) ||
 		       _game.get(x,y).isEqual(_game.get(x+1,y)));
@@ -263,8 +262,7 @@ public class Woo{
 	    if (y == columns -1){
 		matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
 			   _game.get(x,y).isEqual(_game.get(x,y-1)));
-	    }
-	    else{
+	    } else {
 		matches = (_game.get(x,y).isEqual(_game.get(x,y-1)) ||
 			   _game.get(x,y).isEqual(_game.get(x-1,y)) ||
 		       _game.get(x,y).isEqual(_game.get(x,y+1)));
@@ -272,7 +270,7 @@ public class Woo{
 	}
 
 	//right side of grid
-	else{
+	else {
 	    matches = (_game.get(x,y).isEqual(_game.get(x-1,y)) ||
 		       _game.get(x,y).isEqual(_game.get(x,y-1)) ||
 		       _game.get(x,y).isEqual(_game.get(x+1,y)));
@@ -301,7 +299,7 @@ public class Woo{
 	    if ( chance == true){break;}
 	}
 	
-	if(_placesFilled == 16){
+	if(_placesFilled == (rows * columns)){
 	    if (chance == false){
 	    System.out.println("Adieu, comrade. You have made it thus far, but have fallen on the battlefield. The holy God of 2048 commends you for your efforts.");
 	    System.out.println("May you meet the holiness in another reincarnation.");
@@ -326,40 +324,31 @@ public class Woo{
 	    //System.out.println(merge); // Debugging Code
 	    if (merge == true){
 		spawn();
-	    }
-	    else{
+	    } else {
 		System.out.println("Do you take me for a fool? That doesn't do anything! Try another direction!");
 	    }
 	} else if (userInput.equals("D")){
 	    merge = swipeRight();
 	    //System.out.println(merge); // Debugging Code
-
 	    if (merge == true){
 		spawn();
-	    }
-	    else{
+	    } else {
 		System.out.println("Do you take me for a fool? That doesn't do anything! Try another direction!");
 	    }
-		
-
 	} else if (userInput.equals("W")){
 	    merge = swipeUp();
 	    //System.out.println(merge); // Debugging Code
-
 	    if (merge == true){
 		spawn();
-	    }
-	    else{
+	    } else {
 		System.out.println("Do you take me for a fool? That doesn't do anything! Try another direction!");
 	    }
 	} else if (userInput.equals("S")){
 	    merge = swipeDown();
 	    //System.out.println(merge); // Debugging Code
-
 	    if (merge == true){
 		spawn();
-	    }
-	    else{
+	    } else {
 		System.out.println("Do you take me for a fool? That doesn't do anything! Try another direction!");
 	    }
 	} else {
@@ -370,7 +359,7 @@ public class Woo{
 
     //uses above methods to play a game of 2048
     public void game(){
-	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
+	System.out.println("Now, you may embark on your journey. Best of luck to you...");
 	System.out.println();
 	spawn();
 	printGrid();
@@ -390,43 +379,44 @@ public class Woo{
 	win();
 	printGrid();
     }
-	
 
     //main method
     public static void main(String[] args){
+	//Asks user if they want to customize their grids. 1 for regular sized grid and 2 for customization
+	System.out.println("Welcome player. Here, you will begin your journey to meet the holy God of 2048...");
+	System.out.println();
+	System.out.println("What would you like the size of your grid to be? \n Press 1 for normal grid. \n Press 2 to customize size.");
+	System.out.println();
 
-	//Asks user if they want to customize their grids. 1 for regular sized trid and 2 for customization
-	System.out.println("Greetings Traveler!");
-	System.out.println("What would you like the size of your grid to be? \n Press 1 for normal \n Press 2 to customize size");
+	// Read user input
 	int userInput1 = Keyboard.readInt();
 	while (!(userInput1 == 1 || userInput1 == 2)){
-	    System.out.print("\nYour input is invalid. Try again");
+	    System.out.print("\nYou must make a proper decision. The world is at a standstill.\n");
 	    userInput1 = Keyboard.readInt();
 	}
 	if (userInput1 == 1){
 	    Woo bob = new Woo();
 	    bob.game();
 	}
-
-	//if users want to customize, it only takes an integer from 5~10, inclusize, otherwise the user has to try another input
+	//if user wants to customize grid size, it only takes an integer from 2~10, inclusive; otherwise, the user has to try another input.
 	else if (userInput1 == 2){
-	    System.out.println("\nHow wide would you like your grid to be? Please select an integer from 5 to 10");
+	    System.out.println("\nHow wide would you like your grid to be? Our selections range from 2 to 10");
 	    int userInputx = Keyboard.readInt();
-	    System.out.println("\nHow tall would you like your grid to be? Please select an integer from 5 to 10");
+	    while(userInputx == -1 || (userInputx < 2 || userInputx > 10)){
+		 System.out.print("\nYou must make a proper decision. The world is at a standstill.\n");
+		 userInputx = Keyboard.readInt();
+	    }
+	    System.out.println("\nHow tall would you like your grid to be? Our selections range from 2 to 10");
 	    int userInputy = Keyboard.readInt();
-	    while (!(userInputx > 4 && userInputx < 11)){
-		System.out.println("\nYour input for the grids width is invalid. Please try again");
-		userInputx = Keyboard.readInt();
-		}
-	    while (!(userInputy > 4 && userInputy < 11)){
-		System.out.println("\nYour input for the grids height is invalid. Please try again");
-		userInputy = Keyboard.readInt();
-		}
+	    while(userInputy == -1 || (userInputy < 2 || userInputy > 10)){
+		 System.out.print("\nYou must make a proper decision. The world is at a standstill.\n");
+		 userInputy = Keyboard.readInt();
+	    }
+ 
 	    Woo bob = new Woo(userInputx, userInputy);
 	    bob.game();
-	  
 	}
-
+	
     }
     
 }//end class Woo2
