@@ -117,4 +117,5 @@ Judy :: Made method checker() to check if neighbors of a tile is mergeable to it
 2017-01-22
 --------------------------------------------------------------
 Carol:: updated and uploaded uml.pdf
+Judy :: Updated flowchart, made it possible for user to customize grid size
 ==============================================================
