@@ -17,7 +17,7 @@ wow we so BOSS bc...
 
 2. We figured out justification, and it works very nicely!
 
-3. We added features that would ensure that the user is accordingly limited in ther options. From now on, you can't swipe in a direction that wouldn't change the current grid.
+3. We added features that would ensure that the user is limited accordingly in their options, i.e. robustify against terrible users! From now on, you can't swipe in a direction that wouldn't change the current grid.
 
 4. We found a way to continue the game if the board is filled but there are still tiles that can merge.
 
@@ -40,11 +40,19 @@ MID-DEVELOPMENT DESIGN CHANGES
 we changed ___ to ___ bc...
 
 2017-01-12
--We made a new class called Grid2 to contain integers instead of Tiles (temporarily) because Tile class isn't created yet. 
+-We made a new class called Grid2 to contain integers instead of Tiles (temporarily) because Tile class wasn't created yet. 
+
+2017-01-18
+-We decided to let the user change the Grid size instead of using a standard 4x4 Grid all the time because it would have improved UX and allow the user to choose their own difficulty levels.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 tales of wisdom gained...
+
+-
+
+
+
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -102,7 +110,7 @@ Samantha :: wrote interface Equalizer, constructor, and game(); fixed minor synt
 --------------------------------------------------------------
 :::Mark this day down as the day all our efforts bore fruit. It works!!!:::
 Carol :: resolved compile problems, tried some stuff with packaging.
-Judy :: Tested the game for any bugs.
+Judy & Samantha:: Tested the game for any bugs.
 
 
 2017-01-17
@@ -114,8 +122,14 @@ All: Worked together to solve swipe() bug.
 --------------------------------------------------------------
 Judy :: Made method checker() to check if neighbors of a tile is mergeable to itself, used this method to determine if the player loses after the grid is filled and updated UML diagram.
 
+2017-01-19
+--------------------------------------------------------------
+Carol & Judy :: Fixed method checker() bugs; final testing
+Samantha :: Made methods scaleable; final testing
+
 2017-01-22
 --------------------------------------------------------------
-Carol:: updated and uploaded uml.pdf
-Judy :: Updated flowchart, made it possible for user to customize grid size
+Carol:: Updated and uploaded uml.pdf
+Judy :: Updated flowchart, made it possible for user to customize grid size(UX)
+Samantha: Updated devlog
 ==============================================================
