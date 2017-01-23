@@ -17,9 +17,11 @@ wow we so BOSS bc...
 
 2. We figured out justification, and it works very nicely!
 
-3. We added features that would ensure that the user is limited accordingly in their options, i.e. robustify against terrible users! From now on, you can't swipe in a direction that wouldn't change the current grid.
+3. We added features that would ensure that the user is limited accordingly in their options, i.e. safe for bad users! From now on, you can't swipe in a direction that wouldn't change the current grid.
 
 4. We found a way to continue the game if the board is filled but there are still tiles that can merge.
+
+5. We adapted the code to take on different grid sizes for changes in difficulty.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
