@@ -133,5 +133,5 @@ Samantha :: Made methods scaleable; final testing
 --------------------------------------------------------------
 Carol:: Updated and uploaded uml.pdf
 Judy :: Updated flowchart, made it possible for user to customize grid size(UX)
-Samantha: Updated devlog
+Samantha: Updated devlog; resolved bugs; robustified
 ==============================================================

@@ -378,23 +378,23 @@ public class Woo{
 	}
 	//if user wants to customize grid size, it only takes an integer from 2~10, inclusive; otherwise, the user has to try another input.
 	else if (userInput1 == 2){
-	    System.out.println("\nHow wide would you like your grid to be? Our selections range from 2 to 10");
-	    int userInputx = Keyboard.readInt();
-	    while(userInputx == -1 || (userInputx < 2 || userInputx > 10)){
+	    System.out.println("\nHow many rows would you like? Our selections range from 2 to 10");
+	    int userInputRows = Keyboard.readInt();
+	    while(userInputRows == -1 || (userInputRows < 2 || userInputRows > 10)){
 		 System.out.print("\nYou must make a proper decision. The world is at a standstill.\n");
-		 userInputx = Keyboard.readInt();
+		 userInputRows = Keyboard.readInt();
 	    }
-	    System.out.println("\nHow tall would you like your grid to be? Our selections range from 2 to 10");
-	    int userInputy = Keyboard.readInt();
-	    while(userInputy == -1 || (userInputy < 2 || userInputy > 10)){
+	    System.out.println("\nHow many columns would you like? Our selections range from 2 to 10");
+	    int userInputCols = Keyboard.readInt();
+	    while(userInputCols == -1 || (userInputCols < 2 || userInputCols > 10)){
 		 System.out.print("\nYou must make a proper decision. The world is at a standstill.\n");
-		 userInputy = Keyboard.readInt();
+		 userInputCols = Keyboard.readInt();
 	    }
-	    columns = userInputx;
-	    rows = userInputy;	   
+	    rows = userInputRows;
+	    columns = userInputCols;	   
 	}
 
-	_game = new Grid<Equalizer>(columns,rows,nullVal);
+	_game = new Grid<Equalizer>(rows,columns,nullVal);
 	
 	System.out.println("Now, you may embark on your journey. Best of luck to you...");
 	System.out.println();
