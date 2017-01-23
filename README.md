@@ -9,7 +9,7 @@
 
 # How to Launch:
 
-$ javac Game2048.java
-$ java Game2048
+$ javac Woo.java
+$ java Woo
 
 A game of 2048 will instantly begin, and accepts only W,A,S,D inputs
